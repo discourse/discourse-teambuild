@@ -1,0 +1,24 @@
+en:
+  js:
+    discourse_teambuild:
+      title: "Team Building"
+      full_title: "Team Building Exercise 2019"
+      about:
+        title: "About"
+        description: |
+          Welcome to the Discourse Team Building Exercise! This exercise is for team members visiting Montreal in 2019 for our meetup and is meant as an excuse to get to know each other and have an overall fun time!
+
+          General rules:
+            * This activity is optional, only participate if you want to.
+            * Be polite and ask first! Not everyone might be as enthusiastic about a thing as you are.
+            * Have fun!
+
+          How to Participate:
+            * View your goals
+            * Try to complete them! When you do, mark them as done
+            * Compare your score to others!
+
+      scores:
+        title: "High Scores"
+      goals:
+        title: "My Goals"
