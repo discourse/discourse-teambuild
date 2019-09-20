@@ -7,7 +7,7 @@ export default {
       api.decorateWidget("hamburger-menu:generalLinks", () => {
         return {
           icon: "campground",
-          route: "teamBuild",
+          route: "teamBuild.goals",
           label: "discourse_teambuild.title"
         };
       });

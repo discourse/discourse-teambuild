@@ -1,2 +1,17 @@
 
-
+{{#if scores}}
+  <table class='high-scores'>
+    <tr>
+      <th>User</th>
+      <th>Score</th>
+    </tr>
+    {{#each scores as |s|}}
+      <tr>
+        <td>@{{s.username}}</td>
+        <td>{{s.score}}</td>
+      </tr>
+    {{/each}}
+  </table>
+{{else}}
+  <p>{{i18n "discourse_teambuild.scores.none"}}</p>
+{{/if}}

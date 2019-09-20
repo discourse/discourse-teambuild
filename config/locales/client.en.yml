@@ -17,9 +17,11 @@ en:
             * View your goals
             * Try to complete them! When you do, mark them as done
             * Compare your score to others!
+            * The person who completes the most goals will win a prize!
 
       scores:
         title: "High Scores"
+        none: "Nobody has participated yet. Don't worry the fun will be starting soon!"
       goals:
         title: "My Goals"
         share_meal: "Share a meal or beverage with :pizza::coffee::wine_glass:"
