@@ -7,7 +7,12 @@ module DiscourseTeambuild
     end
 
     def goals
-      render json: success_json
+      goals = DiscourseTeambuild::Goals.all
+      render json: {
+        goals: goals,
+        total: goals[:team_members].size + goals[:activities].size,
+        completed: []
+      }
     end
   end
 end

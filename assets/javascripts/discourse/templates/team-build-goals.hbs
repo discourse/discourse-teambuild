@@ -1,1 +1,39 @@
-GOALS
+<div class='completed-score'>
+  Completed: {{completed.length}} / {{total}}
+</div>
+
+<div class='all-goals'>
+  <div class='goal-type'>
+    <div class='description'>
+      {{replace-emoji (i18n "discourse_teambuild.goals.share_meal")}}
+    </div>
+
+    <div class='goals multi-goals'>
+      {{#each goals.team_members as |g|}}
+        {{teambuild-goal
+          goal=g
+          completed=(goal-complete g completed)
+          complete=(action "complete" g)
+          undo=(action "undo" g)
+        }}
+      {{/each}}
+    </div>
+  </div>
+
+  <div class='goal-type'>
+    <div class='description'>
+      {{replace-emoji (i18n "discourse_teambuild.goals.activities")}}
+    </div>
+
+    <div class='goals single-goal'>
+      {{#each goals.activities as |g|}}
+        {{teambuild-goal
+          goal=g
+          completed=(goal-complete g completed)
+          complete=(action "complete" g)
+          undo=(action "undo" g)
+        }}
+      {{/each}}
+    </div>
+  </div>
+</div>

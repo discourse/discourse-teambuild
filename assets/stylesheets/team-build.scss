@@ -1,5 +1,54 @@
 .team-build {
   h1 {
+    margin-bottom: 0.5em;
+  }
+}
+
+.all-goals {
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  .goal-type .description {
     margin-bottom: 1em;
+    font-size: 1.25em;
+  }
+}
+.completed-score {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.multi-goals {
+  flex-wrap: wrap;
+  .goal {
+    width: 200px;
+  }
+}
+.single-goal {
+  flex-direction: column;
+}
+
+.goals {
+  display: flex;
+
+  .goal {
+    display: flex;
+    align-items: center;
+
+    &.completed {
+      font-weight: bold;
+    }
+    .controls {
+      margin-right: 0.5em;
+    }
+    margin-bottom: 1em;
+  }
+
+  .goal-label {
+    .emoji {
+      margin-left: 0.25em;
+    }
   }
 }

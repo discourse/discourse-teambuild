@@ -1,0 +1,10 @@
+<div class='goal {{if completed 'completed' 'incomplete'}}'>
+  <div class='controls'>
+    {{#if completed}}
+      {{d-button icon="check" action=undo class="btn-primary"}}
+    {{else}}
+      {{d-button icon="check" action=complete}}
+    {{/if}}
+  </div>
+  <div class='goal-label'>{{replace-emoji goal.label}}</div>
+</div>

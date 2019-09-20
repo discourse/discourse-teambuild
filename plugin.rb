@@ -7,6 +7,7 @@
 # url: https://github.com/discourse-org/discourse-teambuild
 
 load File.expand_path('../lib/discourse_teambuild/engine.rb', __FILE__)
+load File.expand_path('../lib/discourse_teambuild/goals.rb', __FILE__)
 
 register_svg_icon "campground" if respond_to?(:register_svg_icon)
 register_asset 'stylesheets/team-build.scss'
