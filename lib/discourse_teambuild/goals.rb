@@ -44,7 +44,7 @@ module DiscourseTeambuild
         { id: 5, label: 'Win a game of Rock/Paper/Scissors :scissors:' },
         { id: 6, label: 'Participate in an optional activity :trophy:' },
         { id: 7, label: 'Give a small gift to another team member :gift:' },
-        { id: 8, label: 'Say “Bonjour” to a French speaker (Joffrey & Régis don’t count) :fr:' },
+        { id: 8, label: 'Say “Bonjour” to a French speaker (Joffrey, Régis and Penar don’t count) :fr:' },
         { id: 9, label: 'Do something you’ve never done before :tada:' },
         { id: 10, label: 'Perform a Yo Yo trick :yo-yo:' },
         { id: 11, label: 'Wear a Discourse shirt / hat :tshirt:' },
