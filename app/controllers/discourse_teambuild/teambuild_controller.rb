@@ -24,7 +24,7 @@ module DiscourseTeambuild
         INNER JOIN teambuild_goals AS tgb ON tgb.user_id = u.id
         WHERE u.moderator OR u.admin
         GROUP BY u.id, u.name, u.username
-        ORDER BY score, u.username
+        ORDER BY score DESC, u.username
       SQL
 
       render json: { scores: results }
