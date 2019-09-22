@@ -19,15 +19,31 @@ module DiscourseTeambuild
 
     def scores
       results = DB.query(<<~SQL)
-        SELECT u.id, u.username, count(tgb.id) AS score
+        SELECT u.id,
+          u.username,
+          u.uploaded_avatar_id,
+          COUNT(tgb.id) AS score
         FROM users AS u
         INNER JOIN teambuild_goals AS tgb ON tgb.user_id = u.id
         WHERE u.moderator OR u.admin
-        GROUP BY u.id, u.name, u.username
+        GROUP BY u.id, u.name, u.username, u.uploaded_avatar_id
         ORDER BY score DESC, u.username
       SQL
 
-      render json: { scores: results }
+      last_score = 1000
+      rank = 0
+      scores = results.map do |r|
+        r.as_json.tap do |result|
+          rank += 1 if r.score < last_score
+          last_score = r.score
+          result['trophy'] = true if rank == 1
+          result['rank'] = rank
+          result['avatar_template'] = User.avatar_template(r.username, r.uploaded_avatar_id)
+          result.delete('uploaded_avatar_id')
+        end
+      end
+
+      render json: { scores: scores }
     end
 
     def complete

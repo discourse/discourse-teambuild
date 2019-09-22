@@ -22,6 +22,9 @@ en:
       scores:
         title: "High Scores"
         none: "Nobody has participated yet. Don't worry the fun will be starting soon!"
+        rank: "Rank"
+        user: "User"
+        score: "Score"
       goals:
         title: "My Goals"
         share_meal: "Sit next to a person and share a meal / beverage :pizza::coffee::wine_glass:"

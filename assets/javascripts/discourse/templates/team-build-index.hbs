@@ -2,13 +2,25 @@
 {{#if scores}}
   <table class='high-scores'>
     <tr>
-      <th>User</th>
-      <th>Score</th>
+      <th>{{i18n "discourse_teambuild.scores.rank"}}</th>
+      <th>{{i18n "discourse_teambuild.scores.user"}}</th>
+      <th class="score">{{i18n "discourse_teambuild.scores.score"}}</th>
     </tr>
     {{#each scores as |s|}}
       <tr>
-        <td>@{{s.username}}</td>
-        <td>{{s.score}}</td>
+        <td class='rank'>
+          {{s.rank}}
+          {{#if s.trophy}}
+            {{replace-emoji ':trophy:'}}
+          {{/if}}
+        </td>
+        <td class='user'>
+          {{#link-to 'user' s.username}}
+            {{avatar s imageSize="medium"}}
+            {{s.username}}
+          {{/link-to}}
+        </td>
+        <td class='score'>{{s.score}}</td>
       </tr>
     {{/each}}
   </table>
