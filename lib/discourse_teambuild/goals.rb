@@ -37,6 +37,7 @@ module DiscourseTeambuild
 
     def self.activities
       [
+        { id: 0, label: 'Make a topic tracking your adventures in Montreal' },
         { id: 1, label: 'Eat a Montreal style bagel :bagel:' },
         { id: 2, label: 'Eat junk food from 4 different continents :candy:' },
         { id: 3, label: 'Hear Sam make a pun :man_facepalming:' },
@@ -59,6 +60,14 @@ module DiscourseTeambuild
         { id: 20, label: 'Take a walk in Old Montreal :european_castle:' },
         { id: 21, label: 'Say “Hellooooooooooooooo” to a team member with as many o’s as possible :rofl:' },
         { id: 22, label: 'Photo bomb 2 team members taking a selfie with a landmark :see_no_evil:' },
+        { id: 23, label: 'Head to the top of Mount Royal' },
+        { id: 24, label: 'Go down a zipline' },
+        { id: 25, label: 'Have a jetboat adventure' },
+        { id: 26, label: 'Go for a walk on St. Pauls street' },
+        { id: 27, label: 'Visit a public market' },
+        { id: 28, label: 'Learn a brand new card game from a team member' },
+        { id: 29, label: 'Check out the botanical gardens' },
+        { id: 30, label: 'Check out arcade MTL' },
       ]
     end
 
