@@ -19,6 +19,7 @@
     }
   }
   .rank {
+    padding-left: 1em;
     .emoji {
       margin-left: 0.5em;
     }
@@ -29,6 +30,9 @@
   }
   th.score {
     text-align: center;
+  }
+  tr.me {
+    background-color: $highlight-medium;
   }
 }
 
@@ -46,6 +50,11 @@
   margin-bottom: 1em;
   font-size: 1.2em;
   font-weight: bold;
+  display: flex;
+  .username {
+    color: $primary-medium;
+    margin-right: 0.5em;
+  }
 }
 
 .multi-goals {
@@ -68,7 +77,8 @@
     &.completed {
       font-weight: bold;
     }
-    .controls {
+    .controls,
+    .display-done {
       margin-right: 0.5em;
     }
     margin-bottom: 1em;

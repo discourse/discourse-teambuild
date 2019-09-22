@@ -9,11 +9,17 @@ module DiscourseTeambuild
     end
 
     def goals
+      user = params[:username].present? ?
+        User.find_by(username_lower: params[:username].downcase) :
+        current_user
+
       goals = DiscourseTeambuild::Goals.all
       render json: {
+        username: user.username,
         goals: goals,
         total: goals[:team_members].size + goals[:activities].size,
-        completed: TeambuildGoal.where(user_id: current_user.id).pluck(:goal_id)
+        completed: TeambuildGoal.where(user_id: user.id).pluck(:goal_id),
+        readonly: user.id != current_user.id
       }
     end
 
@@ -21,12 +27,13 @@ module DiscourseTeambuild
       results = DB.query(<<~SQL)
         SELECT u.id,
           u.username,
+          u.username_lower,
           u.uploaded_avatar_id,
           COUNT(tgb.id) AS score
         FROM users AS u
         INNER JOIN teambuild_goals AS tgb ON tgb.user_id = u.id
         WHERE u.moderator OR u.admin
-        GROUP BY u.id, u.name, u.username, u.uploaded_avatar_id
+        GROUP BY u.id, u.name, u.username, u.username_lower, u.uploaded_avatar_id
         ORDER BY score DESC, u.username
       SQL
 
@@ -38,7 +45,8 @@ module DiscourseTeambuild
           last_score = r.score
           result['trophy'] = true if rank == 1
           result['rank'] = rank
-          result['avatar_template'] = User.avatar_template(r.username, r.uploaded_avatar_id)
+          result['me'] = r.id == current_user.id
+          result['avatar_template'] = User.avatar_template(r.username_lower, r.uploaded_avatar_id)
           result.delete('uploaded_avatar_id')
         end
       end

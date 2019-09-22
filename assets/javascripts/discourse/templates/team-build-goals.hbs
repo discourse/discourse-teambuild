@@ -1,5 +1,8 @@
 <div class='completed-score'>
-  Completed: {{completed.length}} / {{total}}
+  <div class='username'>@{{username}}</div>
+  <div class='status'>
+    {{i18n "discourse_teambuild.goals.completed"}}: {{completed.length}} / {{total}}
+  </div>
 </div>
 
 <div class='all-goals'>
@@ -15,6 +18,7 @@
           completed=(goal-complete g completed)
           complete=(action "complete" g)
           undo=(action "undo" g)
+          readonly=readonly
         }}
       {{/each}}
     </div>
@@ -32,6 +36,7 @@
           completed=(goal-complete g completed)
           complete=(action "complete" g)
           undo=(action "undo" g)
+          readonly=readonly
         }}
       {{/each}}
     </div>

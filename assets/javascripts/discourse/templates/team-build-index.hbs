@@ -7,7 +7,7 @@
       <th class="score">{{i18n "discourse_teambuild.scores.score"}}</th>
     </tr>
     {{#each scores as |s|}}
-      <tr>
+      <tr class="{{if s.me 'me'}}">
         <td class='rank'>
           {{s.rank}}
           {{#if s.trophy}}
@@ -15,10 +15,17 @@
           {{/if}}
         </td>
         <td class='user'>
-          {{#link-to 'user' s.username}}
-            {{avatar s imageSize="medium"}}
-            {{s.username}}
-          {{/link-to}}
+          {{#if s.me}}
+            {{#link-to 'teamBuild.goals'}}
+              {{avatar s imageSize="medium"}}
+              {{s.username}}
+            {{/link-to}}
+          {{else}}
+            {{#link-to 'teamBuild.show' s.username_lower}}
+              {{avatar s imageSize="medium"}}
+              {{s.username}}
+            {{/link-to}}
+          {{/if}}
         </td>
         <td class='score'>{{s.score}}</td>
       </tr>

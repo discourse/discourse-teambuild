@@ -5,6 +5,7 @@ DiscourseTeambuild::Engine.routes.draw do
   get '/about' => 'teambuild#index'
   get '/scores' => 'teambuild#scores'
   get '/goals' => 'teambuild#goals'
+  get '/goals/:username' => 'teambuild#goals'
   put '/complete/:goal_id' => 'teambuild#complete'
   delete '/undo/:goal_id' => 'teambuild#undo'
 end
