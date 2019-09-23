@@ -29,7 +29,8 @@ module DiscourseTeambuild
           u.username,
           u.username_lower,
           u.uploaded_avatar_id,
-          COUNT(tgb.id) AS score
+          COUNT(tgb.id) AS score,
+          RANK() OVER (ORDER BY COUNT(tgb.id) DESC) AS rank
         FROM users AS u
         INNER JOIN teambuild_goals AS tgb ON tgb.user_id = u.id
         WHERE u.moderator OR u.admin
@@ -37,14 +38,9 @@ module DiscourseTeambuild
         ORDER BY score DESC, u.username
       SQL
 
-      last_score = 1000
-      rank = 0
       scores = results.map do |r|
         r.as_json.tap do |result|
-          rank += 1 if r.score < last_score
-          last_score = r.score
-          result['trophy'] = true if rank == 1
-          result['rank'] = rank
+          result['trophy'] = true if r.rank == 1
           result['me'] = r.id == current_user.id
           result['avatar_template'] = User.avatar_template(r.username_lower, r.uploaded_avatar_id)
           result.delete('uploaded_avatar_id')
