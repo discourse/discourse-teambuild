@@ -37,7 +37,7 @@ module DiscourseTeambuild
 
     def self.activities
       [
-        { id: 0, label: 'Make a topic tracking your adventures in Montreal' },
+        { id: 0, label: 'Post your adventures in the Montreal staff topic' },
         { id: 1, label: 'Eat a Montreal style bagel :bagel:' },
         { id: 2, label: 'Eat junk food from 4 different continents :candy:' },
         { id: 3, label: 'Hear Sam make a pun :man_facepalming:' },
