@@ -9,9 +9,7 @@ module DiscourseTeambuild
     end
 
     def goals
-      user = params[:username].present? ?
-        User.find_by(username_lower: params[:username].downcase) :
-        current_user
+      user = params[:username].present? ? fetch_user_from_params : current_user
 
       goals = DiscourseTeambuild::Goals.all
       render json: {
