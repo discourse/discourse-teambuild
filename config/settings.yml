@@ -1,0 +1,4 @@
+plugins:
+  teambuild_enabled:
+    default: false
+    client: true

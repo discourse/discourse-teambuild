@@ -4,6 +4,10 @@ require_dependency 'teambuild_goal'
 
 module DiscourseTeambuild
   class TeambuildController < ApplicationController
+
+    requires_login
+    before_action :ensure_enabled
+
     def index
       render json: success_json
     end
@@ -56,6 +60,12 @@ module DiscourseTeambuild
     def undo
       TeambuildGoal.where(user_id: current_user.id, goal_id: params[:goal_id]).delete_all
       render json: success_json
+    end
+
+    protected
+
+    def ensure_enabled
+      raise Discourse::InvalidAccess.new unless SiteSetting.teambuild_enabled?
     end
   end
 end
