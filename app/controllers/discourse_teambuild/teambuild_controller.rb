@@ -15,14 +15,17 @@ module DiscourseTeambuild
     def goals
       user = params[:username].present? ? fetch_user_from_params : current_user
 
-      goals = DiscourseTeambuild::Goals.all
-      render json: {
-        username: user.username,
-        goals: goals,
-        total: goals[:team_members].size + goals[:activities].size,
-        completed: TeambuildGoal.where(user_id: user.id).pluck(:goal_id),
-        readonly: user.id != current_user.id
-      }
+      # old stuff
+      # goals = DiscourseTeambuild::Goals.all
+      # render json: {
+      #   username: user.username,
+      #   teambuild_goals: [],
+      #   goals: goals,
+      #   total: goals[:team_members].size + goals[:activities].size,
+      #   completed: TeambuildGoal.where(user_id: user.id).pluck(:goal_id),
+      #   readonly: user.id != current_user.id
+      # }
+
     end
 
     def scores

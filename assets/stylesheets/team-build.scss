@@ -90,3 +90,26 @@
     }
   }
 }
+
+.teambuild-target {
+  display: flex;
+  margin-top: 1em;
+  .controls {
+    margin-left: 1em;
+  }
+  .target-types {
+    display: flex;
+    label {
+      margin-right: 1em;
+    }
+  }
+  .target-name {
+    label {
+      display: block;
+    }
+    margin-top: 0.5em;
+    input {
+      width: 500px;
+    }
+  }
+}

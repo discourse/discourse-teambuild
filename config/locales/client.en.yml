@@ -3,6 +3,15 @@ en:
     discourse_teambuild:
       title: "Team Building"
       full_title: "Team Building Exercise 2019"
+      targets:
+        create: "Create Target"
+        types:
+          regular: "Regular"
+          user_group: "User Group"
+        name: "Target Name"
+      manage:
+        title: "Manage"
+        get_started: "Create a target to get started."
       about:
         title: "About"
         description: |

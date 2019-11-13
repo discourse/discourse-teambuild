@@ -3,6 +3,7 @@ export default function() {
     this.route("index", { path: "/" });
     this.route("about", { path: "/about" });
     this.route("goals", { path: "/goals" });
+    this.route("manage", { path: "/manage" });
     this.route("show", { path: "/goals/:username" });
   });
 }

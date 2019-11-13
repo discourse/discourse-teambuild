@@ -1,0 +1,29 @@
+<div class='teambuild-target'>
+  <div class='fields'>
+    <div class='target-types'>
+      {{#each targetTypes as |type|}}
+        <label>
+          {{radio-button
+            value=type.id
+            selection=target.target_type_id
+            onChange=(action (mut target.target_type_id) type.id)
+          }}
+          {{i18n (concat "discourse_teambuild.targets.types." type.name)}}
+        </label>
+      {{/each}}
+    </div>
+
+    <div class='target-name'>
+      {{input value=target.name placeholder=(i18n "discourse_teambuild.targets.name")}}
+    </div>
+  </div>
+
+  {{#if showControls}}
+    <div class='controls'>
+      {{#if target.isNew}}
+        {{d-button class="btn-primary" icon="check" action=(action "save") disabled=saveDisabled}}
+      {{/if}}
+      {{d-button class="btn-danger" icon="times" action=removeTarget}}
+    </div>
+  {{/if}}
+</div>
