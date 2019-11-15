@@ -1,35 +1,37 @@
 <div class='teambuild-target {{if editing 'editing'}}'>
-  {{#if editing}}
-    <div class='fields'>
-      <div class='target-types'>
-        {{#each targetTypes as |type|}}
-          <label>
-            {{radio-button
-              class=type.name
-              value=type.id
-              selection=buffered.target_type_id
-              onChange=(action (mut buffered.target_type_id) type.id)
-            }}
-            {{i18n (concat "discourse_teambuild.targets.types." type.name)}}
-          </label>
-        {{/each}}
-      </div>
+  <div class='target-details'>
+    {{#if editing}}
+      <div class='fields'>
+        <div class='target-types'>
+          {{#each targetTypes as |type|}}
+            <label>
+              {{radio-button
+                class=type.name
+                value=type.id
+                selection=buffered.target_type_id
+                onChange=(action (mut buffered.target_type_id) type.id)
+              }}
+              {{i18n (concat "discourse_teambuild.targets.types." type.name)}}
+            </label>
+          {{/each}}
+        </div>
 
-      <div class='target-name'>
-        {{input value=buffered.name placeholder=(i18n "discourse_teambuild.targets.name") autofocus="true"}}
+        <div class='target-name'>
+          {{input value=buffered.name placeholder=(i18n "discourse_teambuild.targets.name") autofocus="true"}}
+        </div>
       </div>
-    </div>
-  {{else}}
-    <div class='target-name'>
-      {{target.name}}
-    </div>
-  {{/if}}
+    {{else}}
+      <div class='target-name'>
+        {{target.name}}
+      </div>
+    {{/if}}
+  </div>
   <div class='controls'>
     {{#if editing}}
       {{d-button
         class="btn-primary save"
         icon="check"
-        label="discourse_teambuild.targets.save"
+        title="discourse_teambuild.targets.save"
         action=(action "save")
         disabled=saveDisabled
       }}
@@ -38,18 +40,20 @@
         class="btn-danger cancel"
         icon="times"
         action=(action "cancel")
-        label="discourse_teambuild.targets.cancel"
+        title="discourse_teambuild.targets.cancel"
       }}
     {{else}}
       {{d-button
         class="edit"
         icon="pencil-alt"
+        title="discourse_teambuild.targets.edit"
         action=(action (mut editSelected) true)
       }}
 
       {{d-button
         class="btn-danger destroy"
         icon="trash-alt"
+        title="discourse_teambuild.targets.delete"
         action=(action "destroy")
       }}
     {{/if}}

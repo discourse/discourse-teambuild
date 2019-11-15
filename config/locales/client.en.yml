@@ -9,8 +9,10 @@ en:
           regular: "Regular"
           user_group: "User Group"
         name: "Target Name"
-        save: "Save"
-        cancel: "Cancel"
+        save: "save"
+        cancel: "cancel"
+        edit: "edit"
+        delete: "delete"
       manage:
         title: "Manage"
         get_started: "Create a target to get started."

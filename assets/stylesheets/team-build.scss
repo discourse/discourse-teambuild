@@ -96,11 +96,19 @@
     margin: 2em 0 1em 0;
   }
 }
+
 .teambuild-target {
+  display: flex;
   margin-top: 1em;
   margin-bottom: 1em;
   padding-bottom: 1em;
   border-bottom: 1px solid $primary-low;
+  align-items: center;
+  justify-content: space-between;
+
+  .target-details {
+  }
+
   .target-types {
     display: flex;
     label {
@@ -115,5 +123,8 @@
     input {
       width: 500px;
     }
+  }
+  .controls {
+    margin-left: 1em;
   }
 }
