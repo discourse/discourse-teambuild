@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class TeambuildGoal < ActiveRecord::Base
+class TeambuildTarget < ActiveRecord::Base
   belongs_to :user
 end

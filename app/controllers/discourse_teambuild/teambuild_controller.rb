@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_dependency 'teambuild_goal'
+require_dependency 'teambuild_target'
 
 module DiscourseTeambuild
   class TeambuildController < ApplicationController

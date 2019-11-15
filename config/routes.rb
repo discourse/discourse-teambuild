@@ -11,4 +11,6 @@ DiscourseTeambuild::Engine.routes.draw do
   delete '/undo/:goal_id' => 'teambuild#undo'
 
   get "/targets" => 'targets#index'
+  post "/targets" => 'targets#create'
+  delete "/targets/:id" => 'targets#destroy'
 end
