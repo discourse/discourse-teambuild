@@ -7,9 +7,9 @@ import { or } from "@ember/object/computed";
 
 export default Component.extend(bufferedProperty("target"), {
   tagName: "",
-  editing: false,
+  editSelected: false,
 
-  showFields: or("editing", "target.isNew"),
+  editing: or("editSelected", "target.isNew"),
 
   targetTypes: computed(function() {
     return Object.keys(Types).map(key => {
@@ -27,9 +27,14 @@ export default Component.extend(bufferedProperty("target"), {
 
   actions: {
     save() {
-      this.target.save(this.buffered.getProperties("name", "target_type_id"));
+      this.target
+        .save(this.buffered.getProperties("name", "target_type_id"))
+        .then(() => {
+          this.set("editSelected", false);
+        });
     },
     cancel() {
+      this.set("editSelected", false);
       if (this.target.isNew) {
         return this.attrs.removeTarget();
       }

@@ -13,4 +13,5 @@ DiscourseTeambuild::Engine.routes.draw do
   get "/targets" => 'targets#index'
   post "/targets" => 'targets#create'
   delete "/targets/:id" => 'targets#destroy'
+  put "/targets/:id" => 'targets#update'
 end

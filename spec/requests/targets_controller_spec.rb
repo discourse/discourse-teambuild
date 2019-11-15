@@ -25,41 +25,47 @@ describe DiscourseTeambuild::TargetsController do
         expect(response.code).to eq("403")
       end
 
-      context "index" do
-        it "returns json" do
-          get "/team-build/targets.json"
-          expect(response.code).to eq("200")
-          json = JSON.parse(response.body)
-          expect(json).to be_present
-          json_target = json['teambuild_targets'].find { |t| t['id'] == target.id }
+      it "returns json" do
+        get "/team-build/targets.json"
+        expect(response.code).to eq("200")
+        json = JSON.parse(response.body)
+        expect(json).to be_present
+        json_target = json['teambuild_targets'].find { |t| t['id'] == target.id }
 
-          expect(json_target).to be_present
-          expect(json_target['name']).to eq(target.name)
-          expect(json_target['target_type_id']).to eq(target.target_type_id)
-        end
+        expect(json_target).to be_present
+        expect(json_target['name']).to eq(target.name)
+        expect(json_target['target_type_id']).to eq(target.target_type_id)
       end
 
-      context "create" do
-        it "returns json" do
-          post "/team-build/targets.json", params: {
-            teambuild_target: { name: 'cool target name', target_type_id: 1 }
-          }
-          expect(response.code).to eq("200")
-          json = JSON.parse(response.body)
-          expect(json).to be_present
-          expect(json['teambuild_target']).to be_present
-          expect(json['teambuild_target']['name']).to eq('cool target name')
-        end
+      it "creates the object" do
+        post "/team-build/targets.json", params: {
+          teambuild_target: { name: 'cool target name', target_type_id: 1 }
+        }
+        expect(response.code).to eq("200")
+        json = JSON.parse(response.body)
+        expect(json).to be_present
+        expect(json['teambuild_target']).to be_present
+        expect(json['teambuild_target']['name']).to eq('cool target name')
       end
 
-      context "destroy" do
-        it "returns json" do
-          id = target.id
-          delete "/team-build/targets/#{id}.json"
-          expect(response.code).to eq("200")
-          expect(TeambuildTarget.find_by(id: id)).to be_blank
-        end
+      it "destroys the object" do
+        id = target.id
+        delete "/team-build/targets/#{id}.json"
+        expect(response.code).to eq("200")
+        expect(TeambuildTarget.find_by(id: id)).to be_blank
       end
+
+      it "updates the object" do
+        put "/team-build/targets/#{target.id}.json", params: {
+          teambuild_target: { name: 'updated name' }
+        }
+        expect(response.code).to eq("200")
+        json = JSON.parse(response.body)
+        expect(json).to be_present
+        expect(json['teambuild_target']).to be_present
+        expect(json['teambuild_target']['name']).to eq('updated name')
+      end
+
     end
 
   end

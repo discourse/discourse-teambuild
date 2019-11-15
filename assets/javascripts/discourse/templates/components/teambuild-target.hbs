@@ -1,5 +1,5 @@
-<div class='teambuild-target {{if target.isNew 'new'}}'>
-  {{#if showFields}}
+<div class='teambuild-target {{if editing 'editing'}}'>
+  {{#if editing}}
     <div class='fields'>
       <div class='target-types'>
         {{#each targetTypes as |type|}}
@@ -16,11 +16,16 @@
       </div>
 
       <div class='target-name'>
-        {{input value=buffered.name placeholder=(i18n "discourse_teambuild.targets.name")}}
+        {{input value=buffered.name placeholder=(i18n "discourse_teambuild.targets.name") autofocus="true"}}
       </div>
     </div>
-
-    <div class='controls'>
+  {{else}}
+    <div class='target-name'>
+      {{target.name}}
+    </div>
+  {{/if}}
+  <div class='controls'>
+    {{#if editing}}
       {{d-button
         class="btn-primary save"
         icon="check"
@@ -28,26 +33,25 @@
         action=(action "save")
         disabled=saveDisabled
       }}
+
       {{d-button
         class="btn-danger cancel"
         icon="times"
         action=(action "cancel")
         label="discourse_teambuild.targets.cancel"
       }}
-    </div>
-  {{else}}
-    {{target.name}}
-    <div class='controls'>
+    {{else}}
       {{d-button
         class="edit"
         icon="pencil-alt"
-        action=(action (mut editing) true)
+        action=(action (mut editSelected) true)
       }}
+
       {{d-button
         class="btn-danger destroy"
         icon="trash-alt"
         action=(action "destroy")
       }}
-    </div>
-  {{/if}}
+    {{/if}}
+  </div>
 </div>
