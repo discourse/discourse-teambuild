@@ -4,6 +4,8 @@ class TeambuildTarget < ActiveRecord::Base
   belongs_to :user
   before_create :default_position
 
+  default_scope { order(:position) }
+
   # This is not safe under concurrency, but it's unlikely someone will be creating
   # targets that actively.
   def default_position

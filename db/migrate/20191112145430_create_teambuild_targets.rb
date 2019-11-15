@@ -9,5 +9,8 @@ class CreateTeambuildTargets < ActiveRecord::Migration[5.2]
       t.integer :position, null: false
       t.timestamps null: false
     end
+
+    add_index :teambuild_targets, :name, unique: true
+    add_index :teambuild_targets, :position, unique: true
   end
 end

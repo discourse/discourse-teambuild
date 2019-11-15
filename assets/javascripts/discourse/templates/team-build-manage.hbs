@@ -1,6 +1,6 @@
 <div class='teambuild-manage'>
   {{#if targets}}
-    {{#each targets as |target|}}
+    {{#each sortedTargets as |target|}}
       {{teambuild-target target=target removeTarget=(action "removeTarget" target)}}
     {{/each}}
   {{else}}
