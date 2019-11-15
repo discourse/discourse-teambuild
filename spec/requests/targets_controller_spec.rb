@@ -17,6 +17,8 @@ describe DiscourseTeambuild::TargetsController do
     end
 
     context "enabled/disabled" do
+      fab!(:target) { TeambuildTarget.create!(target_type_id: 1, name: 'cool') }
+
       it "returns 403 when disabled" do
         SiteSetting.teambuild_enabled = false
         get "/team-build/targets.json"
@@ -25,7 +27,6 @@ describe DiscourseTeambuild::TargetsController do
 
       context "index" do
         it "returns json" do
-          target = TeambuildTarget.create!(target_type_id: 1, name: 'cool')
           get "/team-build/targets.json"
           expect(response.code).to eq("200")
           json = JSON.parse(response.body)
@@ -50,9 +51,17 @@ describe DiscourseTeambuild::TargetsController do
           expect(json['teambuild_target']['name']).to eq('cool target name')
         end
       end
+
+      context "destroy" do
+        it "returns json" do
+          id = target.id
+          delete "/team-build/targets/#{id}.json"
+          expect(response.code).to eq("200")
+          expect(TeambuildTarget.find_by(id: id)).to be_blank
+        end
+      end
     end
 
   end
 
 end
-

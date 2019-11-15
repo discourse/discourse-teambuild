@@ -20,9 +20,7 @@ module DiscourseTeambuild
     end
 
     def destroy
-      if target = TeambuildTarget.find_by(id: params[:id])
-        target.destroy
-      end
+      TeambuildTarget.find_by(id: params[:id])&.destroy
       render json: success_json
     end
 
