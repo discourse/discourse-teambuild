@@ -92,11 +92,10 @@
 }
 
 .teambuild-target {
-  display: flex;
   margin-top: 1em;
-  .controls {
-    margin-left: 1em;
-  }
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid $primary-low;
   .target-types {
     display: flex;
     label {
