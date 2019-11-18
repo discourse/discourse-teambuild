@@ -40,9 +40,7 @@ en:
         rank: "Rank"
         user: "User"
         score: "Score"
-      goals:
-        title: "My Goals"
-        share_meal: "Sit next to a person and share a meal / beverage :pizza::coffee::wine_glass:"
-        activities: "Activities :man_dancing:"
+      progress:
+        title: "Progress"
         completed: "Completed"
       complete: "Complete"

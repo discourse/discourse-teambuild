@@ -12,9 +12,15 @@ module DiscourseTeambuild
       render json: success_json
     end
 
-    def goals
+    def progress
       user = params[:username].present? ? fetch_user_from_params : current_user
 
+      render json: {
+        teambuild_progress: {
+          id: user.username,
+          username: user.username,
+        }
+      }
       # old stuff
       # goals = DiscourseTeambuild::Goals.all
       # render json: {

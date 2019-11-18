@@ -1,18 +1,18 @@
 <div class='completed-score'>
-  <div class='username'>@{{username}}</div>
+  <div class='username'>@{{progress.username}}</div>
   <div class='status'>
-    {{i18n "discourse_teambuild.goals.completed"}}: {{completed.length}} / {{total}}
+    {{i18n "discourse_teambuild.progress.completed"}}: {{completed.length}} / {{total}}
   </div>
 </div>
 
-<div class='all-goals'>
+<div class='all-progress'>
   <div class='goal-type'>
     <div class='description'>
-      {{replace-emoji (i18n "discourse_teambuild.goals.share_meal")}}
+      {{replace-emoji (i18n "discourse_teambuild.progress.share_meal")}}
     </div>
 
-    <div class='goals multi-goals'>
-      {{#each goals.team_members as |g|}}
+    <div class='progress multi-progress'>
+      {{#each progress.team_members as |g|}}
         {{teambuild-goal
           goal=g
           completed=(goal-complete g completed)
@@ -26,11 +26,11 @@
 
   <div class='goal-type'>
     <div class='description'>
-      {{replace-emoji (i18n "discourse_teambuild.goals.activities")}}
+      {{replace-emoji (i18n "discourse_teambuild.progress.activities")}}
     </div>
 
-    <div class='goals single-goal'>
-      {{#each goals.activities as |g|}}
+    <div class='progress single-goal'>
+      {{#each progress.activities as |g|}}
         {{teambuild-goal
           goal=g
           completed=(goal-complete g completed)
