@@ -13,6 +13,7 @@ en:
         cancel: "cancel"
         edit: "edit"
         delete: "delete"
+        choose_group: "(choose a group)"
       manage:
         title: "Manage"
         get_started: "Create a target to get started."

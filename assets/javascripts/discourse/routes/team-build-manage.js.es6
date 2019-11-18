@@ -6,6 +6,6 @@ export default Route.extend({
   },
 
   setupController(controller, targets) {
-    controller.setProperties({ targets });
+    controller.setProperties({ targets, groups: targets.extras.groups });
   }
 });

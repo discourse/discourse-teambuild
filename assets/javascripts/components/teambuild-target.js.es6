@@ -3,11 +3,14 @@ import { computed } from "@ember/object";
 import { Types } from "discourse/plugins/discourse-teambuild/discourse/models/teambuild-target";
 import { bufferedProperty } from "discourse/mixins/buffered-content";
 import { underscore } from "@ember/string";
-import { or } from "@ember/object/computed";
+import { or, equal } from "@ember/object/computed";
+import { popupAjaxError } from "discourse/lib/ajax-error";
 
 export default Component.extend(bufferedProperty("target"), {
   tagName: "",
   editSelected: false,
+
+  needsGroup: equal("buffered.target_type_id", Types.USER_GROUP),
 
   canMoveUp: computed("editing", "index", function() {
     return !this.editing && this.index > 0;
@@ -25,26 +28,41 @@ export default Component.extend(bufferedProperty("target"), {
     });
   }),
 
-  saveDisabled: computed("buffered.name", "target.isSaving", function() {
-    if (this.target.isSaving) {
-      return true;
+  saveDisabled: computed(
+    "buffered.name",
+    "target.isSaving",
+    "needsGroup",
+    "buffered.group_id",
+    function() {
+      if (this.target.isSaving) {
+        return true;
+      }
+      let name = this.get("buffered.name");
+      if (!name || name.length === 0) {
+        return true;
+      }
+      if (this.needsGroup && !this.get("buffered.group_id")) {
+        return true;
+      }
+      return false;
     }
-    let name = this.get("buffered.name");
-    return !name || name.length === 0;
-  }),
+  ),
 
   actions: {
     save() {
       this.target
-        .save(this.buffered.getProperties("name", "target_type_id"))
+        .save(this.buffered.getProperties("name", "target_type_id", "group_id"))
         .then(() => {
           this.set("editSelected", false);
-        });
+        })
+        .catch(popupAjaxError);
     },
     cancel() {
-      this.set("editSelected", false);
       if (this.target.isNew) {
         return this.attrs.removeTarget();
+      } else {
+        this.set("editSelected", false);
+        this.rollbackBuffer();
       }
     },
     destroy() {

@@ -46,6 +46,28 @@ describe DiscourseTeambuild::TargetsController do
         expect(json).to be_present
         expect(json['teambuild_target']).to be_present
         expect(json['teambuild_target']['name']).to eq('cool target name')
+        t = TeambuildTarget.find_by(id: json['teambuild_target']['id'])
+        expect(t).to be_present
+      end
+
+      it "returns an error if group is missing" do
+        post "/team-build/targets.json", params: {
+          teambuild_target: { name: 'missing group', target_type_id: 2 }
+        }
+        expect(response.code).to eq("422")
+      end
+
+      it "creates the object with a group" do
+        group_id = Group.pluck_first(:id)
+        post "/team-build/targets.json", params: {
+          teambuild_target: { name: 'cool target name', target_type_id: 2, group_id: group_id }
+        }
+        expect(response.code).to eq("200")
+        json = JSON.parse(response.body)
+        expect(json).to be_present
+        expect(json['teambuild_target']).to be_present
+        expect(json['teambuild_target']['name']).to eq('cool target name')
+        expect(json['teambuild_target']['group_id']).to eq(group_id)
       end
 
       it "destroys the object" do

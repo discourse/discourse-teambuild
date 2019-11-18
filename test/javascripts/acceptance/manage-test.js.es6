@@ -11,7 +11,10 @@ acceptance("Team Building: Manage", {
             target_type_id: 1,
             name: "existing target"
           }
-        ]
+        ],
+        extras: {
+          groups: [{ id: 1, name: "cool group" }]
+        }
       });
     });
     server.put("/team-build/targets/:id.json", request => {
@@ -65,7 +68,13 @@ QUnit.test("can cancel edit", async assert => {
       .trim(),
     "existing target"
   );
+  await click(".teambuild-target:eq(0) .edit");
+  assert.equal(
+    find(".teambuild-target.editing .target-name input").val(),
+    "existing target"
+  );
 });
+
 QUnit.test("can update", async assert => {
   await visit("/team-build/manage");
   await click(".teambuild-target:eq(0) .edit");

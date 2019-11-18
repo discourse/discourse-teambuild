@@ -3,11 +3,13 @@
     {{#each sortedTargets as |target idx|}}
       {{teambuild-target
         target=target
+        groups=groups
         index=idx
         length=sortedTargets.length
         removeTarget=(action "removeTarget" target)
         moveUp=(action "move" idx -1)
-        moveDown=(action "move" idx 1) }}
+        moveDown=(action "move" idx 1)
+      }}
     {{/each}}
   {{else}}
     <div class='get-started'>{{i18n "discourse_teambuild.manage.get_started"}}</div>

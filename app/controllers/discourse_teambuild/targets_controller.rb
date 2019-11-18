@@ -11,7 +11,13 @@ module DiscourseTeambuild
 
     def index
       targets = TeambuildTarget.all
-      render_serialized(targets, TeambuildTargetSerializer, rest_serializer: true, root: 'teambuild_targets')
+      render_serialized(
+        targets,
+        TeambuildTargetSerializer,
+        rest_serializer: true,
+        root: 'teambuild_targets',
+        extras: { groups: Group.all }
+      )
     end
 
     def create
@@ -28,7 +34,7 @@ module DiscourseTeambuild
       target = TeambuildTarget.find_by(id: params[:id])
       raise Discourse::NotFound if target.blank?
 
-      target.update(params[:teambuild_target].permit(:name, :target_type_id, :group_id))
+      target.update!(params[:teambuild_target].permit(:name, :target_type_id, :group_id))
       render_serialized(target, TeambuildTargetSerializer, rest_serializer: true)
     end
 

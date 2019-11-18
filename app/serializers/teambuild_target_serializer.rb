@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 class TeambuildTargetSerializer < ApplicationSerializer
-  attributes :id, :target_type_id, :name, :position
+  attributes :id, :target_type_id, :name, :group_id, :position
 end
