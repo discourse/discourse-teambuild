@@ -2,7 +2,10 @@
 
 class TeambuildTarget < ActiveRecord::Base
   belongs_to :user
+  belongs_to :group
+
   before_create :default_position
+  validates_uniqueness_of :name
   default_scope { order(:position) }
 
   validates :group_id, presence: true, if: -> { target_type_id == TeambuildTarget.target_types[:user_group] }

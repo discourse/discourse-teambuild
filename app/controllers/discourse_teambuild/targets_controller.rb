@@ -10,7 +10,7 @@ module DiscourseTeambuild
     before_action :ensure_enabled
 
     def index
-      targets = TeambuildTarget.all
+      targets = TeambuildTarget.all.includes(:group)
       render_serialized(
         targets,
         TeambuildTargetSerializer,
