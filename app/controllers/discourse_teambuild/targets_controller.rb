@@ -32,6 +32,19 @@ module DiscourseTeambuild
       render_serialized(target, TeambuildTargetSerializer, rest_serializer: true)
     end
 
+    def swap_position
+      target_position = TeambuildTarget.where(id: params[:id]).pluck_first(:position)
+      other_position = TeambuildTarget.where(id: params[:other_id]).pluck_first(:position)
+      raise Discourse::NotFound if target_position.nil? || other_position.nil?
+
+      TeambuildTarget.transaction do
+        TeambuildTarget.where(id: params[:id], position: target_position).update_all(position: other_position * -1)
+        TeambuildTarget.where(id: params[:other_id], position: other_position).update_all(position: target_position)
+        TeambuildTarget.where(id: params[:id], position: other_position * -1).update_all(position: other_position)
+      end
+      render json: success_json
+    end
+
     protected
 
     def ensure_enabled

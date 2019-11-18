@@ -66,6 +66,19 @@ describe DiscourseTeambuild::TargetsController do
         expect(json['teambuild_target']['name']).to eq('updated name')
       end
 
+      it "can swap the position of targets" do
+        other = TeambuildTarget.create!(target_type_id: 1, name: 'another')
+        other_position = other.position
+        target_position = target.position
+
+        put "/team-build/targets/#{target.id}/swap-position.json", params: {
+          other_id: other.id
+        }
+        expect(response.code).to eq("200")
+        expect(target.reload.position).to eq(other_position)
+        expect(other.reload.position).to eq(target_position)
+      end
+
     end
 
   end

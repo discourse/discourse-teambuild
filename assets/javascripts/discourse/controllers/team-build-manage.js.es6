@@ -5,11 +5,19 @@ import { sort } from "@ember/object/computed";
 export default Controller.extend({
   targets: null,
 
-  sortedTargets: sort("targets", function(a, b) {
-    return a.position - b.position;
-  }),
+  targetSort: ["position"],
+
+  sortedTargets: sort("targets", "targetSort"),
 
   actions: {
+    move(idx, direction) {
+      let item = this.sortedTargets[idx];
+      let other = this.sortedTargets[idx + direction];
+      if (item && other) {
+        item.swapPosition(other);
+      }
+    },
+
     newTarget() {
       this.targets.pushObject(
         this.store.createRecord("teambuild-target", {

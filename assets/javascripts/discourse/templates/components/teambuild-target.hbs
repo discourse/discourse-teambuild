@@ -28,6 +28,14 @@
     {{/if}}
   </div>
   <div class='controls'>
+    {{#if canMoveUp}}
+      {{d-button icon="arrow-up" action=moveUp}}
+    {{/if}}
+
+    {{#if canMoveDown}}
+      {{d-button icon="arrow-down" action=moveDown}}
+    {{/if}}
+
     {{#if editing}}
       {{d-button
         class="btn-primary save"
@@ -57,6 +65,7 @@
         title="discourse_teambuild.targets.delete"
         action=(action "destroy")
       }}
+
     {{/if}}
   </div>
 </div>

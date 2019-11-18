@@ -14,4 +14,5 @@ DiscourseTeambuild::Engine.routes.draw do
   post "/targets" => 'targets#create'
   delete "/targets/:id" => 'targets#destroy'
   put "/targets/:id" => 'targets#update'
+  put "/targets/:id/swap-position" => 'targets#swap_position'
 end

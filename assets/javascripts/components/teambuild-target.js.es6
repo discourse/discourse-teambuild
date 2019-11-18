@@ -9,6 +9,14 @@ export default Component.extend(bufferedProperty("target"), {
   tagName: "",
   editSelected: false,
 
+  canMoveUp: computed("editing", "index", function() {
+    return !this.editing && this.index > 0;
+  }),
+
+  canMoveDown: computed("editing", "index", "length", function() {
+    return !this.editing && this.index < this.length - 1;
+  }),
+
   editing: or("editSelected", "target.isNew"),
 
   targetTypes: computed(function() {
