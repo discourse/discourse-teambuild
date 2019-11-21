@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_dependency 'teambuild_target'
+require_dependency 'teambuild_progress_serializer'
 
 module DiscourseTeambuild
   class TeambuildController < ApplicationController
@@ -14,13 +15,18 @@ module DiscourseTeambuild
 
     def progress
       user = params[:username].present? ? fetch_user_from_params : current_user
-
-      render json: {
-        teambuild_progress: {
-          id: user.username,
-          username: user.username,
-        }
+      targets = TeambuildTarget.all
+      progress = {
+        username: user.username,
+        teambuild_targets: TeambuildTarget.all
       }
+
+      render_serialized(
+        progress,
+        TeambuildProgressSerializer,
+        rest_serializer: true,
+        include_members: true
+      )
       # old stuff
       # goals = DiscourseTeambuild::Goals.all
       # render json: {

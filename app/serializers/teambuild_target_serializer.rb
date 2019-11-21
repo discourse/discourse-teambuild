@@ -7,8 +7,10 @@ class TeambuildTargetSerializer < ApplicationSerializer
     :name,
     :group_id,
     :group_name,
-    :position
+    :position,
   )
+
+  has_many :members, serializer: BasicUserSerializer
 
   def group_name
     object.group.name
@@ -16,5 +18,13 @@ class TeambuildTargetSerializer < ApplicationSerializer
 
   def include_group_name?
     object.group_id.present?
+  end
+
+  def members
+    object.group.users
+  end
+
+  def include_members?
+    !!@options[:include_members] && object.group_id.present?
   end
 end
