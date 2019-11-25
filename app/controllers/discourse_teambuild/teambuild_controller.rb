@@ -43,10 +43,10 @@ module DiscourseTeambuild
           u.username,
           u.username_lower,
           u.uploaded_avatar_id,
-          COUNT(tgb.id) AS score,
-          RANK() OVER (ORDER BY COUNT(tgb.id) DESC) AS rank
+          COUNT(ttu.id) AS score,
+          RANK() OVER (ORDER BY COUNT(ttu.id) DESC) AS rank
         FROM users AS u
-        INNER JOIN teambuild_goals AS tgb ON tgb.user_id = u.id
+        INNER JOIN teambuild_target_users AS ttu ON ttu.user_id = u.id
         WHERE u.moderator OR u.admin
         GROUP BY u.id, u.name, u.username, u.username_lower, u.uploaded_avatar_id
         ORDER BY score DESC, u.username
