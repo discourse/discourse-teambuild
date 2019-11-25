@@ -22,7 +22,9 @@ class TeambuildProgressSerializer < ApplicationSerializer
   end
 
   def total
-    teambuild_targets.size
+    teambuild_targets.inject(0) do |total, t|
+      total + (t.group.present? ? t.group.users.size : 1)
+    end
   end
 
 end
