@@ -16,5 +16,17 @@ export default RestModel.extend({
       method: "PUT",
       data: { other_id: other.id }
     });
+  },
+
+  complete(userId) {
+    return ajax(`/team-build/complete/${this.id}/${userId}`, {
+      method: "PUT"
+    });
+  },
+
+  undo(userId) {
+    return ajax(`/team-build/undo/${this.id}/${userId}`, {
+      method: "DELETE"
+    });
   }
 });

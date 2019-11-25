@@ -16,28 +16,25 @@ module DiscourseTeambuild
     def progress
       user = params[:username].present? ? fetch_user_from_params : current_user
       targets = TeambuildTarget.all
+
+      completed = []
+
       progress = {
-        username: user.username,
-        teambuild_targets: TeambuildTarget.all
+        user: user,
+        teambuild_targets: TeambuildTarget.all,
+        completed: completed
       }
+
+      TeambuildTargetUser.where(user_id: user.id).each do |t|
+        completed << "#{t.teambuild_target_id}:#{t.teambuild_target_user_id}"
+      end
 
       render_serialized(
         progress,
         TeambuildProgressSerializer,
         rest_serializer: true,
-        include_members: true
+        include_users: true
       )
-      # old stuff
-      # goals = DiscourseTeambuild::Goals.all
-      # render json: {
-      #   username: user.username,
-      #   teambuild_goals: [],
-      #   goals: goals,
-      #   total: goals[:team_members].size + goals[:activities].size,
-      #   completed: TeambuildGoal.where(user_id: user.id).pluck(:goal_id),
-      #   readonly: user.id != current_user.id
-      # }
-
     end
 
     def scores
@@ -68,12 +65,21 @@ module DiscourseTeambuild
     end
 
     def complete
-      TeambuildGoal.create!(user_id: current_user.id, goal_id: params[:goal_id])
+      TeambuildTargetUser.create!(
+        user_id: current_user.id,
+        teambuild_target_id: params[:target_id].to_i,
+        teambuild_target_user_id: params[:user_id].to_i
+      )
       render json: success_json
     end
 
     def undo
-      TeambuildGoal.where(user_id: current_user.id, goal_id: params[:goal_id]).delete_all
+      TeambuildTargetUser.where(
+        user_id: current_user.id,
+        teambuild_target_id: params[:target_id].to_i,
+        teambuild_target_user_id: params[:user_id].to_i
+      ).delete_all
+
       render json: success_json
     end
 

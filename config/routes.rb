@@ -7,8 +7,8 @@ DiscourseTeambuild::Engine.routes.draw do
   get '/manage' => 'teambuild#index'
   get "/progress" => 'teambuild#progress'
   get "/progress/:username" => 'teambuild#progress', constraints: { username: RouteFormat.username }
-  put '/complete/:goal_id' => 'teambuild#complete'
-  delete '/undo/:goal_id' => 'teambuild#undo'
+  put '/complete/:target_id/:user_id' => 'teambuild#complete'
+  delete '/undo/:target_id/:user_id' => 'teambuild#undo'
 
   get "/targets" => 'targets#index'
   post "/targets" => 'targets#create'

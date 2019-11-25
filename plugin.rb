@@ -7,7 +7,6 @@
 # url: https://github.com/discourse-org/discourse-teambuild
 
 load File.expand_path('../lib/discourse_teambuild/engine.rb', __FILE__)
-load File.expand_path('../lib/discourse_teambuild/goals.rb', __FILE__)
 
 enabled_site_setting :teambuild_enabled
 

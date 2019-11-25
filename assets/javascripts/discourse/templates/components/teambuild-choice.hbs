@@ -1,0 +1,10 @@
+<div class='teambuild-choice {{if completed 'completed' 'incomplete'}}'>
+  <div class='controls'>
+    {{#if completed}}
+      {{d-button icon="check" action=(action "undo") class="btn-primary"}}
+    {{else}}
+      {{d-button icon="check" action=(action "complete")}}
+    {{/if}}
+  </div>
+  <div class='choice-label'>{{label}}</div>
+</div>

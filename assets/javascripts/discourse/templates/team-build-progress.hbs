@@ -1,52 +1,33 @@
 <div class='completed-score'>
-  <div class='username'>@{{progress.username}}</div>
+  <div class='username'>@{{progress.user.username}}</div>
   <div class='status'>
-    {{i18n "discourse_teambuild.progress.completed"}}: {{completed.length}} / {{total}}
+    {{i18n "discourse_teambuild.progress.completed"}}: {{progress.completed.length}} / {{progress.total}}
   </div>
 </div>
 
 <div class='all-targets'>
-  {{#each progress.teambuild_targets as |t|}}
+  {{#each progress.teambuild_targets as |target|}}
     <div class='target-type'>
-      <div class='description'>{{replace-emoji t.name}}</div>
-      {{#if t.group_id}}
-        NEEDS GROUP
+      {{#if target.group_id}}
+        <div class='description'>{{replace-emoji target.name}}</div>
+        <div class='target-choices multi-choice'>
+          {{#each target.users as |u|}}
+            {{teambuild-choice
+              label=u.username
+              progress=progress
+              target=target
+              userId=u.id
+              }}
+          {{/each}}
+        </div>
+      {{else}}
+        {{teambuild-choice
+          label=(replace-emoji target.name)
+          progress=progress
+          target=target
+          userId=progress.user.id
+        }}
       {{/if}}
     </div>
   {{/each}}
-</div>
-
-<div class='all-progress'>
-  <div class='goal-type'>
-
-    <div class='progress multi-progress'>
-      {{#each progress.team_members as |g|}}
-        {{teambuild-goal
-          goal=g
-          completed=(goal-complete g completed)
-          complete=(action "complete" g)
-          undo=(action "undo" g)
-          readonly=readonly
-        }}
-      {{/each}}
-    </div>
-  </div>
-
-  <div class='goal-type'>
-    <div class='description'>
-      {{replace-emoji (i18n "discourse_teambuild.progress.activities")}}
-    </div>
-
-    <div class='progress single-goal'>
-      {{#each progress.activities as |g|}}
-        {{teambuild-goal
-          goal=g
-          completed=(goal-complete g completed)
-          complete=(action "complete" g)
-          undo=(action "undo" g)
-          readonly=readonly
-        }}
-      {{/each}}
-    </div>
-  </div>
 </div>

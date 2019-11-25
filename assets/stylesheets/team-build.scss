@@ -57,38 +57,40 @@
   }
 }
 
-.multi-goals {
+.multi-choice {
   flex-wrap: wrap;
-  .goal {
+  .teambuild-choice {
     width: 200px;
   }
+  margin-bottom: 1em;
 }
+
 .single-goal {
   flex-direction: column;
 }
 
-.goals {
+.teambuild-choice {
   display: flex;
+  align-items: center;
 
-  .goal {
-    display: flex;
-    align-items: center;
-
-    &.completed {
-      font-weight: bold;
-    }
-    .controls,
-    .display-done {
-      margin-right: 0.5em;
-    }
-    margin-bottom: 1em;
+  &.completed {
+    font-weight: bold;
   }
+  .controls,
+  .display-done {
+    margin-right: 0.5em;
+  }
+  margin-bottom: 1em;
 
-  .goal-label {
+  .choice-label {
     .emoji {
       margin-left: 0.25em;
     }
   }
+}
+
+.target-choices {
+  display: flex;
 }
 
 .teambuild-manage {
