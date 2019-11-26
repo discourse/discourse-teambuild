@@ -36,11 +36,12 @@ en:
 
       scores:
         title: "High Scores"
-        none: "Nobody has participated yet. Don't worry the fun will be starting soon!"
+        none: "Nobody has participated yet."
         rank: "Rank"
         user: "User"
         score: "Score"
       progress:
         title: "Progress"
         completed: "Completed"
+        none: "There is nothing to do right now. Things likely haven't been configured yet."
       complete: "Complete"

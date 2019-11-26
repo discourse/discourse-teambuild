@@ -11,9 +11,11 @@ describe DiscourseTeambuild::TargetsController do
   end
 
   context "logged in" do
+    fab!(:user) { Fabricate(:user) }
+
     before do
       SiteSetting.teambuild_enabled = true
-      sign_in(Fabricate(:user))
+      sign_in(user)
     end
 
     context "enabled/disabled" do
@@ -72,9 +74,11 @@ describe DiscourseTeambuild::TargetsController do
 
       it "destroys the object" do
         id = target.id
+        TeambuildTargetUser.create!(user_id: user.id, teambuild_target_id: id, target_user_id: user.id)
         delete "/team-build/targets/#{id}.json"
         expect(response.code).to eq("200")
         expect(TeambuildTarget.find_by(id: id)).to be_blank
+        expect(TeambuildTargetUser.find_by(user_id: user.id)).to be_blank
       end
 
       it "updates the object" do

@@ -29,6 +29,14 @@ describe DiscourseTeambuild::TeambuildController do
       end
     end
 
+    context "progress" do
+      it "returns nothing when no progress" do
+        get "/team-build/progress.json"
+        json = JSON.parse(response.body)
+        expect(json).to be_present
+        expect(json['teambuild_progress']).to be_present
+      end
+    end
   end
 
 end
