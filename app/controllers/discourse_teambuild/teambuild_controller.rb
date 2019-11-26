@@ -7,7 +7,7 @@ module DiscourseTeambuild
   class TeambuildController < ApplicationController
 
     requires_login
-    before_action :ensure_enabled
+    before_action :ensure_can_access
 
     def index
       render json: success_json
@@ -38,7 +38,7 @@ module DiscourseTeambuild
     end
 
     def scores
-      results = DB.query(<<~SQL)
+      results = DB.query(<<~SQL, group_name: SiteSetting.teambuild_access_group)
         SELECT u.id,
           u.username,
           u.username_lower,
@@ -46,8 +46,10 @@ module DiscourseTeambuild
           COUNT(ttu.id) AS score,
           RANK() OVER (ORDER BY COUNT(ttu.id) DESC) AS rank
         FROM users AS u
-        INNER JOIN teambuild_target_users AS ttu ON ttu.user_id = u.id
-        WHERE u.moderator OR u.admin
+        LEFT OUTER JOIN teambuild_target_users AS ttu ON ttu.user_id = u.id
+        INNER JOIN group_users AS gu ON gu.user_id = u.id
+        INNER JOIN groups AS g ON gu.group_id = g.id
+        WHERE g.name = :group_name
         GROUP BY u.id, u.name, u.username, u.username_lower, u.uploaded_avatar_id
         ORDER BY score DESC, u.username
       SQL
@@ -85,8 +87,15 @@ module DiscourseTeambuild
 
     protected
 
-    def ensure_enabled
+    def ensure_can_access
       raise Discourse::InvalidAccess.new unless SiteSetting.teambuild_enabled?
+
+      return if current_user.staff?
+
+      group = Group.find_by(name: SiteSetting.teambuild_access_group)
+      if group.blank? || !group.group_users.where(user_id: current_user.id).exists?
+        raise Discourse::InvalidAccess.new
+      end
     end
   end
 end

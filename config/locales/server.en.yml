@@ -1,3 +1,4 @@
 en:
   site_settings:
     teambuild_enabled: Enable the Team Building Exercise
+    teambuild_access_group: Group that can access the Team Building Exercise
