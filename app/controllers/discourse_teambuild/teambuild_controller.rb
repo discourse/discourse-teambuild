@@ -26,7 +26,7 @@ module DiscourseTeambuild
       }
 
       TeambuildTargetUser.where(user_id: user.id).each do |t|
-        completed << "#{t.teambuild_target_id}:#{t.teambuild_target_user_id}"
+        completed << "#{t.teambuild_target_id}:#{t.target_user_id}"
       end
 
       render_serialized(
@@ -68,8 +68,8 @@ module DiscourseTeambuild
       TeambuildTargetUser.create!(
         user_id: current_user.id,
         teambuild_target_id: params[:target_id].to_i,
-        teambuild_target_user_id: params[:user_id].to_i
-      )
+        target_user_id: params[:user_id].to_i
+      ) rescue ActiveRecord::RecordNotUnique
       render json: success_json
     end
 
@@ -77,7 +77,7 @@ module DiscourseTeambuild
       TeambuildTargetUser.where(
         user_id: current_user.id,
         teambuild_target_id: params[:target_id].to_i,
-        teambuild_target_user_id: params[:user_id].to_i
+        target_user_id: params[:user_id].to_i
       ).delete_all
 
       render json: success_json

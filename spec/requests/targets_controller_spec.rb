@@ -19,7 +19,12 @@ describe DiscourseTeambuild::TargetsController do
     end
 
     context "enabled/disabled" do
-      fab!(:target) { TeambuildTarget.create!(target_type_id: 1, name: 'cool') }
+      fab!(:target) do
+        TeambuildTarget.create!(
+          target_type_id: TeambuildTarget.target_types[:regular],
+          name: 'cool'
+        )
+      end
 
       it "returns 403 when disabled" do
         SiteSetting.teambuild_enabled = false
@@ -41,7 +46,7 @@ describe DiscourseTeambuild::TargetsController do
 
       it "creates the object" do
         post "/team-build/targets.json", params: {
-          teambuild_target: { name: 'cool target name', target_type_id: 1 }
+          teambuild_target: { name: 'cool target name', target_type_id: TeambuildTarget.target_types[:regular] }
         }
         expect(response.code).to eq("200")
         json = JSON.parse(response.body)
@@ -54,7 +59,7 @@ describe DiscourseTeambuild::TargetsController do
 
       it "returns an error if group is missing" do
         post "/team-build/targets.json", params: {
-          teambuild_target: { name: 'missing group', target_type_id: 2 }
+          teambuild_target: { name: 'missing group', target_type_id: TeambuildTarget.target_types[:user_group] }
         }
         expect(response.code).to eq("422")
       end
@@ -62,7 +67,11 @@ describe DiscourseTeambuild::TargetsController do
       it "creates the object with a group" do
         group_id = Group.pluck_first(:id)
         post "/team-build/targets.json", params: {
-          teambuild_target: { name: 'cool target name', target_type_id: 2, group_id: group_id }
+          teambuild_target: {
+            name: 'cool target name',
+            target_type_id: TeambuildTarget.target_types[:user_group],
+            group_id: group_id
+          }
         }
         expect(response.code).to eq("200")
         json = JSON.parse(response.body)
@@ -93,7 +102,7 @@ describe DiscourseTeambuild::TargetsController do
       end
 
       it "can swap the position of targets" do
-        other = TeambuildTarget.create!(target_type_id: 1, name: 'another')
+        other = TeambuildTarget.create!(target_type_id: TeambuildTarget.target_types[:regular], name: 'another')
         other_position = other.position
         target_position = target.position
 
