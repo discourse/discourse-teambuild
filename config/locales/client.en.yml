@@ -1,8 +1,6 @@
 en:
   js:
     discourse_teambuild:
-      title: "Team Building"
-      full_title: "Team Building Exercise 2019"
       targets:
         create: "Create Target"
         types:

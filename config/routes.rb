@@ -2,7 +2,6 @@
 
 DiscourseTeambuild::Engine.routes.draw do
   get '/' => 'teambuild#index'
-  get '/about' => 'teambuild#index'
   get '/scores' => 'teambuild#scores'
   get '/manage' => 'teambuild#index'
   get "/progress" => 'teambuild#progress'

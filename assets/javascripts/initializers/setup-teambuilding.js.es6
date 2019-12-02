@@ -4,11 +4,10 @@ export default {
   name: "setup-teambuilding",
   initialize() {
     withPluginApi("0.8", api => {
-      api.decorateWidget("hamburger-menu:generalLinks", () => {
+      api.decorateWidget("hamburger-menu:generalLinks", dec => {
         return {
-          icon: "campground",
           route: "teamBuild.progress",
-          label: "discourse_teambuild.title"
+          rawLabel: dec.widget.siteSettings.teambuild_name
         };
       });
     });

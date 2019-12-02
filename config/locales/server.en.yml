@@ -2,3 +2,5 @@ en:
   site_settings:
     teambuild_enabled: Enable the Team Building Exercise
     teambuild_access_group: Group that can access the Team Building Exercise
+    teambuild_name: The name of your team building game
+    teambuild_description: An optional message to be displayed at the top of the team building interface

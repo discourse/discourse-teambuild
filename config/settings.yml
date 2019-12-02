@@ -1,7 +1,13 @@
 plugins:
+  teambuild_name:
+    default: "Team Building"
+    client: true
   teambuild_enabled:
     default: false
     client: true
   teambuild_access_group:
     default: ''
     type: group
+  teambuild_description:
+    default: ''
+    client: true
