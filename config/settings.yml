@@ -11,3 +11,4 @@ plugins:
   teambuild_description:
     default: ''
     client: true
+    textarea: true

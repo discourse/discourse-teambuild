@@ -6,7 +6,7 @@ describe DiscourseTeambuild::TeambuildController do
 
   it "returns 403 when anonymous" do
     SiteSetting.teambuild_enabled = true
-    get "/team-build/about.json"
+    get "/team-build/scores.json"
     expect(response.code).to eq("403")
   end
 
@@ -30,12 +30,12 @@ describe DiscourseTeambuild::TeambuildController do
     context "enabled/disabled" do
       it "returns 403 when disabled" do
         SiteSetting.teambuild_enabled = false
-        get "/team-build/about.json"
+        get "/team-build/scores.json"
         expect(response.code).to eq("403")
       end
 
       it "returns 200 when enabled" do
-        get "/team-build/about.json"
+        get "/team-build/scores.json"
         expect(response.code).to eq("200")
       end
     end
@@ -43,19 +43,19 @@ describe DiscourseTeambuild::TeambuildController do
     context "access group" do
       it "returns 403 when not in the group" do
         group.group_users.where(user: user).delete_all
-        get "/team-build/about.json"
+        get "/team-build/scores.json"
         expect(response.code).to eq("403")
       end
 
       it "returns 200 if staff" do
         group.group_users.where(user: user).delete_all
         user.update!(admin: true)
-        get "/team-build/about.json"
+        get "/team-build/scores.json"
         expect(response.code).to eq("200")
       end
 
       it "returns 200 when enabled" do
-        get "/team-build/about.json"
+        get "/team-build/scores.json"
         expect(response.code).to eq("200")
       end
     end

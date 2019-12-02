@@ -4,14 +4,21 @@ require "rails_helper"
 
 describe DiscourseTeambuild::TargetsController do
 
-  it "returns 403 when anonymous" do
+  it "returns 404 when anonymous" do
     SiteSetting.teambuild_enabled = true
     get "/team-build/targets.json"
-    expect(response.code).to eq("403")
+    expect(response.code).to eq("404")
+  end
+
+  it "returns 404 when not staff" do
+    SiteSetting.teambuild_enabled = true
+    sign_in(Fabricate(:user))
+    get "/team-build/targets.json"
+    expect(response.code).to eq("404")
   end
 
   context "logged in" do
-    fab!(:user) { Fabricate(:user) }
+    fab!(:user) { Fabricate(:moderator) }
 
     before do
       SiteSetting.teambuild_enabled = true
