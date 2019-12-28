@@ -16,3 +16,11 @@ register_asset 'stylesheets/team-build.scss'
 Discourse::Application.routes.append do
   mount ::DiscourseTeambuild::Engine, at: "/team-build"
 end
+
+after_initialize do
+  add_to_serializer(:current_user, :has_teambuild_access?) do
+    return true if scope.is_admin?
+    group = Group.find_by("lower(name) = ?", SiteSetting.teambuild_access_group.downcase)
+    return true if group && GroupUser.where(user_id: scope.user.id, group_id: group.id).exists?
+  end
+end
