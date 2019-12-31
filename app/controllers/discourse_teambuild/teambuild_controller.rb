@@ -88,8 +88,7 @@ module DiscourseTeambuild
     protected
 
     def ensure_can_access
-      return if guardian.has_teambuild_access?
-      raise Discourse::InvalidAccess.new
+      raise Discourse::InvalidAccess.new unless guardian.has_teambuild_access?
     end
   end
 end
