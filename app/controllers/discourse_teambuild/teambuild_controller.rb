@@ -88,14 +88,7 @@ module DiscourseTeambuild
     protected
 
     def ensure_can_access
-      raise Discourse::InvalidAccess.new unless SiteSetting.teambuild_enabled?
-
-      return if current_user.staff?
-
-      group = Group.find_by(name: SiteSetting.teambuild_access_group)
-      if group.blank? || !group.group_users.where(user_id: current_user.id).exists?
-        raise Discourse::InvalidAccess.new
-      end
+      raise Discourse::InvalidAccess.new unless guardian.has_teambuild_access?
     end
   end
 end
