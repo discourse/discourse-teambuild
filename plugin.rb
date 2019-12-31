@@ -18,9 +18,13 @@ Discourse::Application.routes.append do
 end
 
 after_initialize do
-  add_to_serializer(:current_user, :has_teambuild_access?) do
-    return true if scope.is_admin?
-    group = Group.find_by("lower(name) = ?", SiteSetting.teambuild_access_group.downcase)
-    return true if group && GroupUser.where(user_id: scope.user.id, group_id: group.id).exists?
+  add_to_class(:guardian, :has_teambuild_access?) do
+    return false unless SiteSetting.teambuild_enabled?
+    return true if is_admin?
+    @user.groups.where(name: SiteSetting.teambuild_access_group).exists?
+  end
+
+  add_to_serializer(:current_user, :can_access_teambuild) do
+    object.guardian.has_teambuild_access?
   end
 end

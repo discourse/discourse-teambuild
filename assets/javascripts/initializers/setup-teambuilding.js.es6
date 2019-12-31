@@ -5,7 +5,7 @@ export default {
   initialize() {
     withPluginApi("0.8", api => {
       const currentUser = api.getCurrentUser();
-      if (currentUser.has_teambuild_access) {
+      if (currentUser && currentUser.can_access_teambuild) {
         api.decorateWidget("hamburger-menu:generalLinks", dec => {
           return {
             route: "teamBuild.progress",
