@@ -6,7 +6,6 @@ export default Route.extend({
   },
 
   setupController(controller, progress) {
-    console.log(progress);
     this.controllerFor("teamBuild.progress").setProperties({ progress });
   },
 
