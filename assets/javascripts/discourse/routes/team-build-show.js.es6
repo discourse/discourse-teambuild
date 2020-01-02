@@ -1,16 +1,16 @@
-import { ajax } from "discourse/lib/ajax";
 import Route from "@ember/routing/route";
 
 export default Route.extend({
   model(params) {
-    return ajax(`/team-build/goals/${params.username}.json`);
+    return this.store.find("teambuild-progress", params.username);
   },
 
-  setupController(controller, model) {
-    this.controllerFor("teamBuild.goals").setProperties(model);
+  setupController(controller, progress) {
+    console.log(progress);
+    this.controllerFor("teamBuild.progress").setProperties({ progress });
   },
 
   renderTemplate() {
-    this.render("teamBuild.goals");
+    this.render("teamBuild.progress");
   }
 });
