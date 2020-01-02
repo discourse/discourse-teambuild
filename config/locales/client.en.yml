@@ -15,23 +15,6 @@ en:
       manage:
         title: "Manage"
         get_started: "Create a target to get started."
-      about:
-        title: "About"
-        description: |
-          Welcome to the Discourse Team Building Exercise! This exercise is for team members visiting Montreal in 2019 for our meetup and is meant as an excuse to get to know each other and have an overall fun time!
-
-          General rules:
-            * This activity is optional, only participate if you want to.
-            * Be polite and ask first! Not everyone might be as enthusiastic about a thing as you are.
-            * Keep to the spirit of team building. Eating a bagle alone does not count.
-            * Have fun!
-
-          How to Participate:
-            * View your goals
-            * Try to complete them! When you do, mark them as done
-            * Compare your score to others!
-            * The person who completes the most goals will win a prize!
-
       scores:
         title: "High Scores"
         none: "Nobody has participated yet."
