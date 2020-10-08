@@ -19,11 +19,6 @@ Style/AndOr:
 Style/FrozenStringLiteralComment:
   Enabled: true
 
-# Do not use braces for hash literals when they are the last argument of a
-# method call.
-Style/BracesAroundHashParameters:
-  Enabled: true
-
 # Align `when` with `case`.
 Layout/CaseIndentation:
   Enabled: true
@@ -82,11 +77,11 @@ Layout/SpaceInsideParens:
   Enabled: true
 
 # Detect hard tabs, no hard tabs.
-Layout/Tab:
+Layout/IndentationStyle:
   Enabled: true
 
 # Blank lines should not have any spaces.
-Layout/TrailingBlankLines:
+Layout/TrailingEmptyLines:
   Enabled: true
 
 # No trailing whitespace.
@@ -116,7 +111,7 @@ Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: true
 
 Bundler/OrderedGems:
@@ -132,7 +127,7 @@ Style/Semicolon:
 Style/RedundantReturn:
   Enabled: true
 
-DiscourseCops/NoChdir:	
+Discourse/NoChdir:
   Enabled: true	
   Exclude:	
     - 'spec/**/*' # Specs are run sequentially, so chdir can be used	
