@@ -1,4 +1,4 @@
-<div class='teambuild-manage'>
+<div class="teambuild-manage">
   {{#if targets}}
     {{#each sortedTargets as |target idx|}}
       {{teambuild-target
@@ -12,10 +12,10 @@
       }}
     {{/each}}
   {{else}}
-    <div class='get-started'>{{i18n "discourse_teambuild.manage.get_started"}}</div>
+    <div class="get-started">{{i18n "discourse_teambuild.manage.get_started"}}</div>
   {{/if}}
 
-  <div class='controls'>
+  <div class="controls">
     {{d-button
       class="btn-primary create-target"
       label="discourse_teambuild.targets.create"

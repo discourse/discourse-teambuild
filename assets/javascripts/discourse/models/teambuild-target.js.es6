@@ -3,7 +3,7 @@ import { ajax } from "discourse/lib/ajax";
 
 export const Types = {
   REGULAR: 1,
-  USER_GROUP: 2
+  USER_GROUP: 2,
 };
 
 export default RestModel.extend({
@@ -14,19 +14,19 @@ export default RestModel.extend({
 
     return ajax(`/team-build/targets/${this.id}/swap-position`, {
       method: "PUT",
-      data: { other_id: other.id }
+      data: { other_id: other.id },
     });
   },
 
   complete(userId) {
     return ajax(`/team-build/complete/${this.id}/${userId}`, {
-      method: "PUT"
+      method: "PUT",
     });
   },
 
   undo(userId) {
     return ajax(`/team-build/undo/${this.id}/${userId}`, {
-      method: "DELETE"
+      method: "DELETE",
     });
-  }
+  },
 });

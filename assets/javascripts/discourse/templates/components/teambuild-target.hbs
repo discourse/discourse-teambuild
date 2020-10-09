@@ -1,8 +1,8 @@
-<div class='teambuild-target {{if editing 'editing'}}'>
-  <div class='target-details'>
+<div class="teambuild-target {{if editing "editing"}}">
+  <div class="target-details">
     {{#if editing}}
-      <div class='fields'>
-        <div class='target-types'>
+      <div class="fields">
+        <div class="target-types">
           {{#each targetTypes as |type|}}
             <label>
               {{radio-button
@@ -16,7 +16,7 @@
           {{/each}}
         </div>
 
-        <div class='target-name'>
+        <div class="target-name">
           {{input value=buffered.name placeholder=(i18n "discourse_teambuild.targets.name") autofocus="true"}}
         </div>
 
@@ -25,15 +25,15 @@
         {{/if}}
       </div>
     {{else}}
-      <div class='target-name'>
+      <div class="target-name">
         {{replace-emoji target.name}}
       </div>
-      <div class='target-group-name'>
+      <div class="target-group-name">
         {{target.group_name}}
       </div>
     {{/if}}
   </div>
-  <div class='controls'>
+  <div class="controls">
     {{#if canMoveUp}}
       {{d-button icon="arrow-up" action=moveUp}}
     {{/if}}

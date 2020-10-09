@@ -18,6 +18,6 @@ After installing the plugin:
 
 3. Create/Edit targets for your participants by visiting `/team-build/manage`
 
-  * A regular target is a simple name (that supports emoji). For example: "Wear a hat :tophat:"
+- A regular target is a simple name (that supports emoji). For example: "Wear a hat :tophat:"
 
-  * A user group target will list all the members in the group as individual goals. For example "Say good morning to"
+- A user group target will list all the members in the group as individual goals. For example "Say good morning to"

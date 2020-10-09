@@ -12,18 +12,18 @@ export default Component.extend(bufferedProperty("target"), {
 
   needsGroup: equal("buffered.target_type_id", Types.USER_GROUP),
 
-  canMoveUp: computed("editing", "index", function() {
+  canMoveUp: computed("editing", "index", function () {
     return !this.editing && this.index > 0;
   }),
 
-  canMoveDown: computed("editing", "index", "length", function() {
+  canMoveDown: computed("editing", "index", "length", function () {
     return !this.editing && this.index < this.length - 1;
   }),
 
   editing: or("editSelected", "target.isNew"),
 
-  targetTypes: computed(function() {
-    return Object.keys(Types).map(key => {
+  targetTypes: computed(function () {
+    return Object.keys(Types).map((key) => {
       return { id: Types[key], name: underscore(key) };
     });
   }),
@@ -33,7 +33,7 @@ export default Component.extend(bufferedProperty("target"), {
     "target.isSaving",
     "needsGroup",
     "buffered.group_id",
-    function() {
+    function () {
       if (this.target.isSaving) {
         return true;
       }
@@ -67,6 +67,6 @@ export default Component.extend(bufferedProperty("target"), {
     },
     destroy() {
       this.target.destroyRecord().then(() => this.attrs.removeTarget());
-    }
-  }
+    },
+  },
 });

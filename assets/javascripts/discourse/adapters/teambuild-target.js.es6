@@ -7,5 +7,5 @@ export default RestAdapter.extend({
       return `/team-build/targets/${id}.json`;
     }
     return `/team-build/targets.json`;
-  }
+  },
 });

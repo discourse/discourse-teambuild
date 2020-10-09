@@ -1,22 +1,22 @@
 {{#if siteSettings.teambuild_description}}
-  <div class='teambuild-description'>
+  <div class="teambuild-description">
     {{siteSettings.teambuild_description}}
   </div>
 {{/if}}
 
-<div class='completed-score'>
-  <div class='username'>@{{progress.user.username}}</div>
-  <div class='status'>
+<div class="completed-score">
+  <div class="username">@{{progress.user.username}}</div>
+  <div class="status">
     {{i18n "discourse_teambuild.progress.completed"}}: {{progress.completed.length}} / {{progress.total}}
   </div>
 </div>
 
-<div class='all-targets'>
+<div class="all-targets">
   {{#each progress.teambuild_targets as |target|}}
-    <div class='target-type'>
+    <div class="target-type">
       {{#if target.group_id}}
-        <div class='description'>{{replace-emoji target.name}}</div>
-        <div class='target-choices multi-choice'>
+        <div class="description">{{replace-emoji target.name}}</div>
+        <div class="target-choices multi-choice">
           {{#each target.users as |u|}}
             {{teambuild-choice
               label=u.username

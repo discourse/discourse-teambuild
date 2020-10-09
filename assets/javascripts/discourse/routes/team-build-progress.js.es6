@@ -7,5 +7,5 @@ export default Route.extend({
 
   setupController(controller, progress) {
     controller.setProperties({ progress });
-  }
+  },
 });
