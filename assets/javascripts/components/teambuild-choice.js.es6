@@ -4,7 +4,7 @@ import { computed } from "@ember/object";
 export default Component.extend({
   tagName: "",
 
-  completed: computed("progress.completed.[]", function() {
+  completed: computed("progress.completed.[]", function () {
     return this.progress.isComplete(this.target, this.userId);
   }),
 
@@ -14,6 +14,6 @@ export default Component.extend({
     },
     undo() {
       this.progress.undo(this.target, this.userId);
-    }
-  }
+    },
+  },
 });

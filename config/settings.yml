@@ -6,9 +6,9 @@ plugins:
     default: false
     client: true
   teambuild_access_group:
-    default: ''
+    default: ""
     type: group
   teambuild_description:
-    default: ''
+    default: ""
     client: true
     textarea: true

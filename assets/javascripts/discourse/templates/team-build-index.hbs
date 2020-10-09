@@ -1,35 +1,39 @@
 
 {{#if scores}}
-  <table class='high-scores'>
-    <tr>
-      <th>{{i18n "discourse_teambuild.scores.rank"}}</th>
-      <th>{{i18n "discourse_teambuild.scores.user"}}</th>
-      <th class="score">{{i18n "discourse_teambuild.scores.score"}}</th>
-    </tr>
-    {{#each scores as |s|}}
-      <tr class="{{if s.me 'me'}}">
-        <td class='rank'>
-          {{s.rank}}
-          {{#if s.trophy}}
-            {{replace-emoji ':trophy:'}}
-          {{/if}}
-        </td>
-        <td class='user'>
-          {{#if s.me}}
-            {{#link-to 'teamBuild.progress'}}
-              {{avatar s imageSize="medium"}}
-              {{s.username}}
-            {{/link-to}}
-          {{else}}
-            {{#link-to 'teamBuild.show' s.username_lower}}
-              {{avatar s imageSize="medium"}}
-              {{s.username}}
-            {{/link-to}}
-          {{/if}}
-        </td>
-        <td class='score'>{{s.score}}</td>
+  <table class="high-scores">
+    <thead>
+      <tr>
+        <th>{{i18n "discourse_teambuild.scores.rank"}}</th>
+        <th>{{i18n "discourse_teambuild.scores.user"}}</th>
+        <th class="score">{{i18n "discourse_teambuild.scores.score"}}</th>
       </tr>
-    {{/each}}
+    </thead>
+    <tbody>
+      {{#each scores as |s|}}
+        <tr class={{if s.me "me"}}>
+          <td class="rank">
+            {{s.rank}}
+            {{#if s.trophy}}
+              {{replace-emoji ":trophy:"}}
+            {{/if}}
+          </td>
+          <td class="user">
+            {{#if s.me}}
+              {{#link-to "teamBuild.progress"}}
+                {{avatar s imageSize="medium"}}
+                {{s.username}}
+              {{/link-to}}
+            {{else}}
+              {{#link-to "teamBuild.show" s.username_lower}}
+                {{avatar s imageSize="medium"}}
+                {{s.username}}
+              {{/link-to}}
+            {{/if}}
+          </td>
+          <td class="score">{{s.score}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
   </table>
 {{else}}
   <p>{{i18n "discourse_teambuild.scores.none"}}</p>

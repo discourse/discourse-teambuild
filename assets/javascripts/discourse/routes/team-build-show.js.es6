@@ -11,5 +11,5 @@ export default Route.extend({
 
   renderTemplate() {
     this.render("teamBuild.progress");
-  }
+  },
 });

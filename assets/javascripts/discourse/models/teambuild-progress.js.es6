@@ -1,5 +1,4 @@
 import RestModel from "discourse/models/rest";
-import { ajax } from "discourse/lib/ajax";
 import { popupAjaxError } from "discourse/lib/ajax-error";
 
 function choiceKey(target, userId) {
@@ -19,6 +18,7 @@ export default RestModel.extend({
       })
       .catch(popupAjaxError);
   },
+
   undo(target, userId) {
     target
       .undo(userId)
@@ -26,5 +26,5 @@ export default RestModel.extend({
         this.completed.removeObject(choiceKey(target, userId));
       })
       .catch(popupAjaxError);
-  }
+  },
 });
