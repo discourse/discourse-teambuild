@@ -4,11 +4,12 @@ on:
   push:
     branches:
       - master
+      - main
   pull_request:
 
 jobs:
   build:
-    name: '${{ matrix.target }}-${{ matrix.build_types }}'
+    name: "${{ matrix.target }}-${{ matrix.build_types }}"
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
 
@@ -26,12 +27,12 @@ jobs:
       fail-fast: false
 
       matrix:
-        build_types: ['BACKEND', 'FRONTEND']
-        target: ['PLUGINS']
+        build_types: ["BACKEND", "FRONTEND"]
+        target: ["PLUGINS"]
         os: [ubuntu-latest]
-        ruby: ['2.6']
-        postgres: ['12']
-        redis: ['4.x']
+        ruby: ["2.6"]
+        postgres: ["12"]
+        redis: ["4.x"]
 
     services:
       postgres:
@@ -64,13 +65,13 @@ jobs:
         id: check_spec
         uses: andstor/file-existence-action@v1
         with:
-          files: 'plugins/${{ github.event.repository.name }}/spec'
+          files: "plugins/${{ github.event.repository.name }}/spec"
 
       - name: Check qunit existence
         id: check_qunit
         uses: andstor/file-existence-action@v1
         with:
-          files: 'plugins/${{ github.event.repository.name }}/test/javascripts'
+          files: "plugins/${{ github.event.repository.name }}/test/javascripts"
 
       - name: Setup Git
         run: |
