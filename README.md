@@ -1,5 +1,7 @@
 # discourse-teambuild
 
+https://meta.discourse.org/t/discourse-teambuild-run-your-own-team-building-activity/134907
+
 This plugin was extracted from a game the Discourse team played while meeting up in Montreal
 in 2019. The game is similar to a scavenger hunt, in that each player can check off an item
 that they did while on the trip. The player with the most items checked off wins the game.
