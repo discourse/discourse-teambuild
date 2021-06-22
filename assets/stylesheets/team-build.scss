@@ -20,7 +20,7 @@
     }
     a {
       font-weight: bold;
-      color: $primary-high;
+      color: var(--primary-high);
     }
   }
   .rank {
@@ -37,7 +37,7 @@
     text-align: center;
   }
   tr.me {
-    background-color: $highlight-medium;
+    background-color: var(--highlight-medium);
   }
 }
 
@@ -57,7 +57,7 @@
   font-weight: bold;
   display: flex;
   .username {
-    color: $primary-medium;
+    color: var(--primary-medium);
     margin-right: 0.5em;
   }
 }
@@ -109,7 +109,7 @@
   margin-top: 1em;
   margin-bottom: 1em;
   padding-bottom: 1em;
-  border-bottom: 1px solid $primary-low;
+  border-bottom: 1px solid var(--primary-low);
   align-items: center;
   justify-content: space-between;
 
