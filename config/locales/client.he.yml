@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 he:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "יצירת יעד"
+        types:
+          regular: "רגיל"
+          user_group: "קבוצת משתמשים"
+        name: "שם יעד"
+        save: "שמירה"
+        cancel: "ביטול"
+        edit: "עריכה"
+        delete: "מחיקה"
+        choose_group: "(נא לבחור קבוצה)"
+      manage:
+        title: "ניהול"
+        get_started: "יש ליצור יעד כדי להתחיל."
+      scores:
+        title: "ציונים גבוהים"
+        none: "עוד אין משתתפים."
+        rank: "דירוג"
+        user: "משתמש"
+        score: "ניקוד"
+      progress:
+        title: "התקדמות"
+        completed: "הושלמו"
+        none: "כרגע אין מה לעשות. כנראה שעוד חסרות הגדרות."
+        mark_complete: "סימון שהושלם"
+        mark_incomplete: "סימון שלא הושלם"
+      complete: "הושלם"

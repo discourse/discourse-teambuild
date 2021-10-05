@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 he:
+  site_settings:
+    teambuild_enabled: הפעלת תרגיל גיבוש הצוות
+    teambuild_access_group: קבוצה שיכולה לגשת לתרגיל גיבוש הצוות
+    teambuild_name: שם משחק גיבוש הצוות שלך
+    teambuild_description: הודעה כרשות שתוצג בראש מנשק גיבוש הקבוצה
