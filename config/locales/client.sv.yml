@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 sv:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "Skapa mål"
+        types:
+          regular: "Vanlig"
+          user_group: "Användargrupp"
+        name: "Målnamn"
+        save: "spara"
+        cancel: "avbryt"
+        edit: "redigera"
+        delete: "radera"
+        choose_group: "(välj en grupp)"
+      manage:
+        title: "Hantera"
+        get_started: "Skapa ett mål för att komma igång."
+      scores:
+        title: "Högsta poäng"
+        none: "Ingen har deltagit än."
+        rank: "Rank"
+        user: "Användare"
+        score: "Poäng"
+      progress:
+        title: "Framsteg"
+        completed: "Slutförd"
+        none: "Det finns inget att göra just nu. Saker har troligen inte konfigurerats än."
+        mark_complete: "Markera som klar"
+        mark_incomplete: "Markera som ofullständig"
+      complete: "Slutför"
