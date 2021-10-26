@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 sv:
+  site_settings:
+    teambuild_enabled: Aktivera teambuilding-övningen
+    teambuild_access_group: Grupp som kan komma åt teambuilding-övningen
+    teambuild_name: Namnet på ditt teambuilding-spel
+    teambuild_description: Ett valfritt meddelande som visas överst i teambuilding-gränssnittet
