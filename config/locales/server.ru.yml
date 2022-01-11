@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 ru:
+  site_settings:
+    teambuild_enabled: Включить обучение по созданию команды
+    teambuild_access_group: Группа, которая может получить доступ к обучению по созданию команды
+    teambuild_name: Название вашей командной игры
+    teambuild_description: Необязательное сообщение, которое будет отображаться в верхней части интерфейса командной игры

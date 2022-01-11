@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 ru:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "Создание цели"
+        types:
+          regular: "Обычная"
+          user_group: "Группа пользователей"
+        name: "Название цели"
+        save: "сохранить"
+        cancel: "отмена"
+        edit: "изменить"
+        delete: "удалить"
+        choose_group: "(выбрать группу)"
+      manage:
+        title: "Управление"
+        get_started: "Создайте цель, чтобы приступить к работе."
+      scores:
+        title: "Высшие показатели"
+        none: "Никто ещё не участвовал."
+        rank: "Ранг"
+        user: "Пользователь"
+        score: "Счёт"
+      progress:
+        title: "Прогресс"
+        completed: "Завершено"
+        none: "Сейчас нечего делать. Скорее всего, всё ещё не настроено."
+        mark_complete: "Отметить завершённым"
+        mark_incomplete: "Отметить неполным"
+      complete: "Завершено"
