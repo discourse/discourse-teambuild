@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 fr:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "Créer une cible"
+        types:
+          regular: "Normal"
+          user_group: "Groupe d'utilisateurs"
+        name: "Nom de la cible"
+        save: "enregistrer"
+        cancel: "annuler"
+        edit: "modifier"
+        delete: "supprimer"
+        choose_group: "(choisir un groupe)"
+      manage:
+        title: "Gérer"
+        get_started: "Créez une cible pour commencer."
+      scores:
+        title: "Meilleurs scores"
+        none: "Personne n'a encore participé."
+        rank: "Rang"
+        user: "Utilisateur"
+        score: "Score"
+      progress:
+        title: "Progrès"
+        completed: "Terminé"
+        none: "Il n'y a rien à faire pour le moment. Il est probable que rien n'ait encore été configuré."
+        mark_complete: "Marquer comme terminé"
+        mark_incomplete: "Marquer comme incomplet"
+      complete: "Terminer"

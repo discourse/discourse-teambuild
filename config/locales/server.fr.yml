@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 fr:
+  site_settings:
+    teambuild_enabled: Activer l'exercice de renforcement d'équipe
+    teambuild_access_group: Groupe pouvant accéder à l'exercice de renforcement d'équipe
+    teambuild_name: Le nom de votre jeu de renforcement d'équipe
+    teambuild_description: Un message facultatif à afficher en haut de l'interface de renforcement d'équipe

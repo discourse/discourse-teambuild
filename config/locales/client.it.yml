@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 it:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "Crea destinazione"
+        types:
+          regular: "Abituale"
+          user_group: "Gruppo di utenti"
+        name: "Nome destinazione"
+        save: "salva"
+        cancel: "annulla"
+        edit: "modifica"
+        delete: "elimina"
+        choose_group: "(scegli un gruppo)"
+      manage:
+        title: "Gestisci"
+        get_started: "Crea una destinazione per iniziare."
+      scores:
+        title: "Punteggi più alti"
+        none: "Nessuno ha ancora partecipato."
+        rank: "Classifica"
+        user: "Utente"
+        score: "Punteggio"
+      progress:
+        title: "Avanzamento"
+        completed: "Completato"
+        none: "Al momento non c'è niente da fare. Forse non sono state ancora eseguite le configurazioni."
+        mark_complete: "Contrassegna come completo"
+        mark_incomplete: "Contrassegna come incompleto"
+      complete: "Completo"

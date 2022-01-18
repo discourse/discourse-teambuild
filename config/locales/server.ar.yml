@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 ar:
+  site_settings:
+    teambuild_enabled: تفعيل تمرين بناء الفريق
+    teambuild_access_group: المجموعة التي يمكنها الوصول إلى "تمرين بناء الفريق"
+    teambuild_name: اسم لعبة بناء الفريق
+    teambuild_description: رسالة اختيارية يتم عرضها في أعلى واجهة بناء الفريق

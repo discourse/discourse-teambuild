@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 zh_CN:
+  site_settings:
+    teambuild_enabled: 启用团建活动
+    teambuild_access_group: 可以参加团建活动的群组
+    teambuild_name: 您的团建游戏的名称
+    teambuild_description: 在团建界面顶部显示的可选消息

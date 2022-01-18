@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 de:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "Ziel erstellen"
+        types:
+          regular: "Regulär"
+          user_group: "Benutzergruppe"
+        name: "Zielname"
+        save: "speichern"
+        cancel: "abbrechen"
+        edit: "bearbeiten"
+        delete: "löschen"
+        choose_group: "(wähle eine Gruppe)"
+      manage:
+        title: "Verwalten"
+        get_started: "Erstelle ein Ziel, um loszulegen."
+      scores:
+        title: "Höchstpunktzahlen"
+        none: "Bisher hat noch niemand teilgenommen."
+        rank: "Rang"
+        user: "Benutzer"
+        score: "Punktzahl"
+      progress:
+        title: "Fortschritt"
+        completed: "Abgeschlossen"
+        none: "Im Moment gibt es nichts zu tun. Die Konfiguration wurde vermutlich noch nicht abgeschlossen."
+        mark_complete: "Als abgeschlossen markieren"
+        mark_incomplete: "Als unvollständig markieren"
+      complete: "Abgeschlossen"
