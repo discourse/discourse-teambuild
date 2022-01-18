@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 de:
+  site_settings:
+    teambuild_enabled: Teambuilding-Übung aktivieren
+    teambuild_access_group: Gruppe, die auf die Teambuilding-Übung zugreifen kann
+    teambuild_name: Der Name deines Teambuilding-Spiels
+    teambuild_description: Eine optionale Nachricht, die oben auf der Teambuilding-Oberfläche angezeigt wird

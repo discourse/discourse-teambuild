@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 ar:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "إنشاء هدف"
+        types:
+          regular: "منتظم"
+          user_group: "مجموعة المستخدم"
+        name: "اسم الهدف"
+        save: "حفظ"
+        cancel: "إلغاء"
+        edit: "تعديل"
+        delete: "حذف"
+        choose_group: "(اختيار مجموعة)"
+      manage:
+        title: "إدارة"
+        get_started: "أنشئ هدفًا للبدء."
+      scores:
+        title: "نقاط عالية"
+        none: "لم يشارك أحد بعد."
+        rank: "المرتبة"
+        user: "المستخدم"
+        score: "النقاط"
+      progress:
+        title: "التقدُّم"
+        completed: "اكتمل"
+        none: "لا يوجد شيء لفعله الآن. من المرجَّح أنه لم يتم الإعداد بعد."
+        mark_complete: "وضع علامة كمكتمل"
+        mark_incomplete: "وضع علامة كغير مكتمل"
+      complete: "مكتمل"

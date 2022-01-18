@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 zh_CN:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "创建目标"
+        types:
+          regular: "常规"
+          user_group: "用户群组"
+        name: "目标名称"
+        save: "保存"
+        cancel: "取消"
+        edit: "编辑"
+        delete: "删除"
+        choose_group: "（选择群组）"
+      manage:
+        title: "管理"
+        get_started: "创建一个目标以开始。"
+      scores:
+        title: "最高分"
+        none: "还没有人参与。"
+        rank: "排名"
+        user: "用户"
+        score: "分数"
+      progress:
+        title: "进度"
+        completed: "已完成"
+        none: "现在没有什么可做的。活动可能还没有配置好。"
+        mark_complete: "标记完成"
+        mark_incomplete: "标记未完成"
+      complete: "完成"
