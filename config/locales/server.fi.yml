@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 fi:
+  site_settings:
+    teambuild_enabled: Ota tiiminrakennusharjoitus käyttöön
+    teambuild_access_group: Ryhmä, jolla on pääsy tiiminrakennusharjoitukseen
+    teambuild_name: Tiiminrakennuspelisi nimi
+    teambuild_description: Valinnainen viesti, joka näytetään tiiminrakennuskäyttöliittymän yläosassa

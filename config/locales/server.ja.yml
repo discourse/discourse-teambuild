@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 ja:
+  site_settings:
+    teambuild_enabled: チームビルディング演習を有効にする
+    teambuild_access_group: チームビルディング演習にアクセスできるグループ
+    teambuild_name: チームビルディングゲームの名前
+    teambuild_description: チームビルディングインターフェースの上部に表示されるオプションのメッセージ
