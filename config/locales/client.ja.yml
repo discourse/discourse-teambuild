@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 ja:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "ターゲットを作成"
+        types:
+          regular: "レギュラー"
+          user_group: "ユーザーグループ"
+        name: "ターゲット名"
+        save: "保存"
+        cancel: "キャンセル"
+        edit: "編集"
+        delete: "削除"
+        choose_group: "（グループを選択）"
+      manage:
+        title: "管理"
+        get_started: "開始するにはターゲットを作成してください。"
+      scores:
+        title: "ハイスコア"
+        none: "まだ誰も参加していません。"
+        rank: "ランク"
+        user: "ユーザー"
+        score: "スコア"
+      progress:
+        title: "進捗"
+        completed: "完了"
+        none: "現在、何も行うことがありません。まだ設定されていない可能性があります。"
+        mark_complete: "完了としてマークする"
+        mark_incomplete: "未完了としてマークする"
+      complete: "完了"

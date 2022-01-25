@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 fi:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "Luo tavoite"
+        types:
+          regular: "Tavallinen"
+          user_group: "Käyttäjäryhmä"
+        name: "Tavoitteen nimi"
+        save: "tallenna"
+        cancel: "peruuta"
+        edit: "muokkaa"
+        delete: "poista"
+        choose_group: "(valitse ryhmä)"
+      manage:
+        title: "Hallitse"
+        get_started: "Aloita luomalla tavoite."
+      scores:
+        title: "Korkeimmat pistemäärät"
+        none: "Kukaan ei ole vielä osallistunut."
+        rank: "Sijoitus"
+        user: "Käyttäjä"
+        score: "Pistemäärä"
+      progress:
+        title: "Edistyminen"
+        completed: "Valmis"
+        none: "Tällä hetkellä ei ole mitään tehtävänä, määrityksiä ei ole vielä luultavasti tehty."
+        mark_complete: "Merkitse valmiiksi"
+        mark_incomplete: "Merkitse keskeneräiseksi"
+      complete: "Valmis"
