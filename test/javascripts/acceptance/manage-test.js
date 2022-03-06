@@ -1,4 +1,9 @@
-import { acceptance } from "discourse/tests/helpers/qunit-helpers";
+import {
+  acceptance,
+  count,
+  query,
+} from "discourse/tests/helpers/qunit-helpers";
+import { click, fillIn, visit } from "@ember/test-helpers";
 
 acceptance("Team Building: Manage", function (needs) {
   needs.user();
@@ -29,56 +34,56 @@ acceptance("Team Building: Manage", function (needs) {
     });
   });
 
-  test("can cancel creating", async (assert) => {
+  test("can cancel creating", async function (assert) {
     await visit("/team-build/manage");
     await click(".create-target");
-    assert.equal(find(".teambuild-target.editing").length, 1);
+    assert.strictEqual(count(".teambuild-target.editing"), 1);
     await click(".teambuild-target.editing .cancel");
-    assert.equal(find(".teambuild-target.editing").length, 0);
+    assert.strictEqual(count(".teambuild-target.editing"), 0);
   });
 
-  test("can create a new regular target", async (assert) => {
+  test("can create a new regular target", async function (assert) {
     await visit("/team-build/manage");
     await click(".create-target");
-    assert.equal(find(".teambuild-target.editing").length, 1);
-    assert.equal(find(".teambuild-target.editing .save[disabled]").length, 1);
+    assert.strictEqual(count(".teambuild-target.editing"), 1);
+    assert.strictEqual(count(".teambuild-target.editing .save[disabled]"), 1);
     await click(".teambuild-target.editing .target-types input.regular");
     await fillIn(".teambuild-target.editing .target-name input", "Cool target");
-    assert.equal(find(".teambuild-target.editing .save[disabled]").length, 0);
+    assert.strictEqual(count(".teambuild-target.editing .save[disabled]"), 0);
     await click(".teambuild-target.editing .save");
-    assert.equal(find(".teambuild-target.editing").length, 0);
+    assert.strictEqual(count(".teambuild-target.editing"), 0);
   });
 
-  test("can delete", async (assert) => {
+  test("can delete", async function (assert) {
     await visit("/team-build/manage");
-    assert.equal(find(".teambuild-target").length, 1);
-    await click(".teambuild-target:eq(0) .destroy");
-    assert.equal(find(".teambuild-target").length, 0);
+    assert.strictEqual(count(".teambuild-target"), 1);
+    await click(".teambuild-target .destroy");
+    assert.strictEqual(count(".teambuild-target"), 0);
   });
 
-  test("can cancel edit", async (assert) => {
+  test("can cancel edit", async function (assert) {
     await visit("/team-build/manage");
-    await click(".teambuild-target:eq(0) .edit");
+    await click(".teambuild-target .edit");
     await fillIn(".teambuild-target.editing .target-name input", "New Name");
     await click(".teambuild-target.editing .cancel");
-    assert.equal(
-      find(".teambuild-target:eq(0) .target-name").text().trim(),
+    assert.strictEqual(
+      query(".teambuild-target .target-name").innerText.trim(),
       "existing target"
     );
-    await click(".teambuild-target:eq(0) .edit");
-    assert.equal(
-      find(".teambuild-target.editing .target-name input").val(),
+    await click(".teambuild-target .edit");
+    assert.strictEqual(
+      query(".teambuild-target.editing .target-name input").value,
       "existing target"
     );
   });
 
-  test("can update", async (assert) => {
+  test("can update", async function (assert) {
     await visit("/team-build/manage");
-    await click(".teambuild-target:eq(0) .edit");
+    await click(".teambuild-target .edit");
     await fillIn(".teambuild-target.editing .target-name input", "New Name");
     await click(".teambuild-target.editing .save");
-    assert.equal(
-      find(".teambuild-target:eq(0) .target-name").text().trim(),
+    assert.strictEqual(
+      query(".teambuild-target .target-name").innerText.trim(),
       "New Name"
     );
   });
