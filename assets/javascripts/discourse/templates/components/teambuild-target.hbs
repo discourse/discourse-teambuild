@@ -17,11 +17,19 @@
         </div>
 
         <div class="target-name">
-          {{input value=buffered.name placeholder=(i18n "discourse_teambuild.targets.name") autofocus="true"}}
+          {{input
+            value=buffered.name
+            placeholder=(i18n "discourse_teambuild.targets.name")
+            autofocus="true"
+          }}
         </div>
 
         {{#if needsGroup}}
-          {{combo-box content=groups value=buffered.group_id none="discourse_teambuild.targets.choose_group"}}
+          {{combo-box
+            content=groups
+            value=buffered.group_id
+            none="discourse_teambuild.targets.choose_group"
+          }}
         {{/if}}
       </div>
     {{else}}
