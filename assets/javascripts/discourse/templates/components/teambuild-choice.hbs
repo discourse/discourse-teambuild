@@ -6,9 +6,18 @@
       {{/if}}
     {{else}}
       {{#if completed}}
-        {{d-button icon="check" action=(action "undo") class="btn-primary" title="discourse_teambuild.progress.mark_incomplete"}}
+        {{d-button
+          icon="check"
+          action=(action "undo")
+          class="btn-primary"
+          title="discourse_teambuild.progress.mark_incomplete"
+        }}
       {{else}}
-        {{d-button icon="circle" action=(action "complete") title="discourse_teambuild.progress.mark_complete"}}
+        {{d-button
+          icon="circle"
+          action=(action "complete")
+          title="discourse_teambuild.progress.mark_complete"
+        }}
       {{/if}}
     {{/if}}
   </div>

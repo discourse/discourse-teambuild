@@ -7,7 +7,10 @@
 <div class="completed-score">
   <div class="username">@{{progress.user.username}}</div>
   <div class="status">
-    {{i18n "discourse_teambuild.progress.completed"}}: {{progress.completed.length}} / {{progress.total}}
+    {{i18n "discourse_teambuild.progress.completed"}}:
+    {{progress.completed.length}}
+    /
+    {{progress.total}}
   </div>
 </div>
 
@@ -24,7 +27,7 @@
               target=target
               userId=u.id
               readOnly=readOnly
-              }}
+            }}
           {{/each}}
         </div>
       {{else}}

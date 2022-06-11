@@ -1,12 +1,10 @@
 {
   "name": "discourse-teambuild",
   "version": "0.0.1",
+  "repository": "https://github.com/discourse/discourse-teambuild",
   "author": "Discourse",
   "license": "MIT",
   "devDependencies": {
-    "eslint-config-discourse": "^3.0.0"
-  },
-  "scripts": {
-    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('NPM is not supported, please use Yarn instead. ')\""
+    "eslint-config-discourse": "^3.1.0"
   }
 }
