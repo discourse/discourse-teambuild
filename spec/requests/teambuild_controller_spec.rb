@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe DiscourseTeambuild::TeambuildController do
+RSpec.describe DiscourseTeambuild::TeambuildController do
 
   it "returns 403 when anonymous" do
     SiteSetting.teambuild_enabled = true
