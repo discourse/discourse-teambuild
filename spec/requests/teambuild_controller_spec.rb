@@ -10,7 +10,7 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
     expect(response.code).to eq("403")
   end
 
-  context "logged in" do
+  context "when logged in" do
     fab!(:user) { Fabricate(:user) }
     fab!(:target) do
       TeambuildTarget.create!(
@@ -27,7 +27,7 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
       sign_in(user)
     end
 
-    context "enabled/disabled" do
+    context "when enabled/disabled" do
       it "returns 403 when disabled" do
         SiteSetting.teambuild_enabled = false
         get "/team-build/scores.json"
@@ -40,7 +40,7 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
       end
     end
 
-    context "access group" do
+    context "with access group" do
       it "returns 403 when not in the group" do
         group.group_users.where(user: user).delete_all
         get "/team-build/scores.json"
@@ -60,7 +60,7 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
       end
     end
 
-    context "progress" do
+    describe "progress" do
       it "returns json" do
         put "/team-build/complete/#{target.id}/#{user.id}.json"
 
@@ -94,7 +94,7 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
       end
     end
 
-    context "complete / undo " do
+    describe "complete / undo " do
       it "will mark the target as completed" do
         put "/team-build/complete/#{target.id}/#{user.id}.json"
         expect(response.code).to eq("200")

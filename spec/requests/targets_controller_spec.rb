@@ -17,7 +17,7 @@ RSpec.describe DiscourseTeambuild::TargetsController do
     expect(response.code).to eq("404")
   end
 
-  context "logged in" do
+  context "when logged in" do
     fab!(:user) { Fabricate(:moderator) }
 
     before do
@@ -25,7 +25,7 @@ RSpec.describe DiscourseTeambuild::TargetsController do
       sign_in(user)
     end
 
-    context "enabled/disabled" do
+    context "when enabled/disabled" do
       fab!(:target) do
         TeambuildTarget.create!(
           target_type_id: TeambuildTarget.target_types[:regular],
