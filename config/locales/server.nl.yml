@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 nl:
+  site_settings:
+    teambuild_enabled: Schakel de teambuildingoefening in
+    teambuild_access_group: Groep die toegang heeft tot de teambuildingoefening
+    teambuild_name: De naam van je teambuildingspel
+    teambuild_description: Een optioneel bericht om weer te geven bovenaan de teambuildinginterface

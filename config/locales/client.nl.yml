@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 nl:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "Doel maken"
+        types:
+          regular: "Normaal"
+          user_group: "Gebruikersgroep"
+        name: "Doelnaam"
+        save: "opslaan"
+        cancel: "annuleren"
+        edit: "bewerken"
+        delete: "verwijderen"
+        choose_group: "(kies een groep)"
+      manage:
+        title: "Beheren"
+        get_started: "Maak een doel om te beginnen."
+      scores:
+        title: "Highscores"
+        none: "Er heeft nog niemand deelgenomen."
+        rank: "Rang"
+        user: "Gebruiker"
+        score: "Score"
+      progress:
+        title: "Voortgang"
+        completed: "Voltooid"
+        none: "Er is op dit moment niets te doen. Dingen zijn waarschijnlijk nog niet geconfigureerd."
+        mark_complete: "Als voltooid markeren"
+        mark_incomplete: "Als onvoltooid markeren"
+      complete: "Voltooien"
