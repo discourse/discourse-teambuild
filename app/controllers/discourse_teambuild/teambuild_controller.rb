@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency 'teambuild_target'
-require_dependency 'teambuild_progress_serializer'
+require_dependency "teambuild_target"
+require_dependency "teambuild_progress_serializer"
 
 module DiscourseTeambuild
   class TeambuildController < ApplicationController
-
     requires_login
     before_action :ensure_can_access
 
@@ -19,21 +18,17 @@ module DiscourseTeambuild
 
       completed = []
 
-      progress = {
-        user: user,
-        teambuild_targets: TeambuildTarget.all,
-        completed: completed
-      }
+      progress = { user: user, teambuild_targets: TeambuildTarget.all, completed: completed }
 
-      TeambuildTargetUser.where(user_id: user.id).each do |t|
-        completed << "#{t.teambuild_target_id}:#{t.target_user_id}"
-      end
+      TeambuildTargetUser
+        .where(user_id: user.id)
+        .each { |t| completed << "#{t.teambuild_target_id}:#{t.target_user_id}" }
 
       render_serialized(
         progress,
         TeambuildProgressSerializer,
         rest_serializer: true,
-        include_users: true
+        include_users: true,
       )
     end
 
@@ -54,24 +49,29 @@ module DiscourseTeambuild
         ORDER BY score DESC, u.username
       SQL
 
-      scores = results.map do |r|
-        r.as_json.tap do |result|
-          result['trophy'] = true if r.rank == 1
-          result['me'] = r.id == current_user.id
-          result['avatar_template'] = User.avatar_template(r.username_lower, r.uploaded_avatar_id)
-          result.delete('uploaded_avatar_id')
+      scores =
+        results.map do |r|
+          r.as_json.tap do |result|
+            result["trophy"] = true if r.rank == 1
+            result["me"] = r.id == current_user.id
+            result["avatar_template"] = User.avatar_template(r.username_lower, r.uploaded_avatar_id)
+            result.delete("uploaded_avatar_id")
+          end
         end
-      end
 
       render json: { scores: scores }
     end
 
     def complete
-      TeambuildTargetUser.create!(
-        user_id: current_user.id,
-        teambuild_target_id: params[:target_id].to_i,
-        target_user_id: params[:user_id].to_i
-      ) rescue ActiveRecord::RecordNotUnique
+      begin
+        TeambuildTargetUser.create!(
+          user_id: current_user.id,
+          teambuild_target_id: params[:target_id].to_i,
+          target_user_id: params[:user_id].to_i,
+        )
+      rescue StandardError
+        ActiveRecord::RecordNotUnique
+      end
       render json: success_json
     end
 
@@ -79,7 +79,7 @@ module DiscourseTeambuild
       TeambuildTargetUser.where(
         user_id: current_user.id,
         teambuild_target_id: params[:target_id].to_i,
-        target_user_id: params[:user_id].to_i
+        target_user_id: params[:user_id].to_i,
       ).delete_all
 
       render json: success_json

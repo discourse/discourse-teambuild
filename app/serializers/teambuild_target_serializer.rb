@@ -1,14 +1,7 @@
 # frozen_string_literal: true
 
 class TeambuildTargetSerializer < ApplicationSerializer
-  attributes(
-    :id,
-    :target_type_id,
-    :name,
-    :group_id,
-    :group_name,
-    :position
-  )
+  attributes(:id, :target_type_id, :name, :group_id, :group_name, :position)
 
   has_many :users, serializer: BasicUserSerializer
 

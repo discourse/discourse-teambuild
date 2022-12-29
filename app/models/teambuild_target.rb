@@ -9,7 +9,9 @@ class TeambuildTarget < ActiveRecord::Base
   validates_uniqueness_of :name
   default_scope { order(:position) }
 
-  validates :group_id, presence: true, if: -> { target_type_id == TeambuildTarget.target_types[:user_group] }
+  validates :group_id,
+            presence: true,
+            if: -> { target_type_id == TeambuildTarget.target_types[:user_group] }
 
   def self.target_types
     @target_types ||= Enum.new(regular: 1, user_group: 2)
@@ -20,5 +22,4 @@ class TeambuildTarget < ActiveRecord::Base
   def default_position
     self.position = (TeambuildTarget.maximum(:position) || 0) + 1
   end
-
 end
