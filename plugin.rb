@@ -7,16 +7,14 @@
 # url: https://github.com/discourse/discourse-teambuild
 # transpile_js: true
 
-load File.expand_path('../lib/discourse_teambuild/engine.rb', __FILE__)
+load File.expand_path("../lib/discourse_teambuild/engine.rb", __FILE__)
 
 enabled_site_setting :teambuild_enabled
 
 register_svg_icon "campground" if respond_to?(:register_svg_icon)
-register_asset 'stylesheets/team-build.scss'
+register_asset "stylesheets/team-build.scss"
 
-Discourse::Application.routes.append do
-  mount ::DiscourseTeambuild::Engine, at: "/team-build"
-end
+Discourse::Application.routes.append { mount ::DiscourseTeambuild::Engine, at: "/team-build" }
 
 after_initialize do
   add_to_class(:guardian, :has_teambuild_access?) do
@@ -25,7 +23,5 @@ after_initialize do
     @user.groups.where(name: SiteSetting.teambuild_access_group).exists?
   end
 
-  add_to_serializer(:current_user, :can_access_teambuild) do
-    object.guardian.has_teambuild_access?
-  end
+  add_to_serializer(:current_user, :can_access_teambuild) { object.guardian.has_teambuild_access? }
 end

@@ -3,7 +3,6 @@
 require "rails_helper"
 
 RSpec.describe DiscourseTeambuild::TeambuildController do
-
   it "returns 403 when anonymous" do
     SiteSetting.teambuild_enabled = true
     get "/team-build/scores.json"
@@ -14,8 +13,8 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
     fab!(:user) { Fabricate(:user) }
     fab!(:target) do
       TeambuildTarget.create!(
-        name: 'test target',
-        target_type_id: TeambuildTarget.target_types[:regular]
+        name: "test target",
+        target_type_id: TeambuildTarget.target_types[:regular],
       )
     end
     fab!(:group) { Fabricate(:group) }
@@ -68,14 +67,14 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
         json = JSON.parse(response.body)
         expect(json).to be_present
 
-        progress = json['teambuild_progress']
-        expect(progress['teambuild_target_ids']).to include(target.id)
+        progress = json["teambuild_progress"]
+        expect(progress["teambuild_target_ids"]).to include(target.id)
 
-        expect(progress['completed']).to include("#{target.id}:#{user.id}")
+        expect(progress["completed"]).to include("#{target.id}:#{user.id}")
 
-        targets = json['teambuild_targets']
+        targets = json["teambuild_targets"]
         expect(targets).to be_present
-        json_target = targets.find { |t| t['id'] == target.id }
+        json_target = targets.find { |t| t["id"] == target.id }
         expect(json_target).to be_present
       end
 
@@ -84,12 +83,12 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
         json = JSON.parse(response.body)
         expect(json).to be_present
 
-        progress = json['teambuild_progress']
-        expect(progress['teambuild_target_ids']).to include(target.id)
+        progress = json["teambuild_progress"]
+        expect(progress["teambuild_target_ids"]).to include(target.id)
 
-        targets = json['teambuild_targets']
+        targets = json["teambuild_targets"]
         expect(targets).to be_present
-        json_target = targets.find { |t| t['id'] == target.id }
+        json_target = targets.find { |t| t["id"] == target.id }
         expect(json_target).to be_present
       end
     end
@@ -98,7 +97,9 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
       it "will mark the target as completed" do
         put "/team-build/complete/#{target.id}/#{user.id}.json"
         expect(response.code).to eq("200")
-        expect(TeambuildTargetUser.find_by(user_id: user.id, teambuild_target_id: target.id)).to be_present
+        expect(
+          TeambuildTargetUser.find_by(user_id: user.id, teambuild_target_id: target.id),
+        ).to be_present
 
         # Test duplicate, should not error
         put "/team-build/complete/#{target.id}/#{user.id}.json"
@@ -106,9 +107,10 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
 
         delete "/team-build/undo/#{target.id}/#{user.id}.json"
         expect(response.code).to eq("200")
-        expect(TeambuildTargetUser.find_by(user_id: user.id, teambuild_target_id: target.id)).to be_blank
+        expect(
+          TeambuildTargetUser.find_by(user_id: user.id, teambuild_target_id: target.id),
+        ).to be_blank
       end
     end
   end
-
 end

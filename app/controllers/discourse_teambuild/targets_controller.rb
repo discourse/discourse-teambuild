@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency 'teambuild_target'
-require_dependency 'teambuild_target_serializer'
+require_dependency "teambuild_target"
+require_dependency "teambuild_target_serializer"
 
 module DiscourseTeambuild
   class TargetsController < ApplicationController
-
     requires_login
     before_action :ensure_enabled
 
@@ -15,13 +14,16 @@ module DiscourseTeambuild
         targets,
         TeambuildTargetSerializer,
         rest_serializer: true,
-        root: 'teambuild_targets',
-        extras: { groups: Group.all }
+        root: "teambuild_targets",
+        extras: {
+          groups: Group.all,
+        },
       )
     end
 
     def create
-      target = TeambuildTarget.create!(params[:teambuild_target].permit(:name, :target_type_id, :group_id))
+      target =
+        TeambuildTarget.create!(params[:teambuild_target].permit(:name, :target_type_id, :group_id))
       render_serialized(target, TeambuildTargetSerializer, rest_serializer: true)
     end
 
@@ -44,9 +46,15 @@ module DiscourseTeambuild
       raise Discourse::NotFound if target_position.nil? || other_position.nil?
 
       TeambuildTarget.transaction do
-        TeambuildTarget.where(id: params[:target_id], position: target_position).update_all(position: other_position * -1)
-        TeambuildTarget.where(id: params[:other_id], position: other_position).update_all(position: target_position)
-        TeambuildTarget.where(id: params[:target_id], position: other_position * -1).update_all(position: other_position)
+        TeambuildTarget.where(id: params[:target_id], position: target_position).update_all(
+          position: other_position * -1,
+        )
+        TeambuildTarget.where(id: params[:other_id], position: other_position).update_all(
+          position: target_position,
+        )
+        TeambuildTarget.where(id: params[:target_id], position: other_position * -1).update_all(
+          position: other_position,
+        )
       end
       render json: success_json
     end

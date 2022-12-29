@@ -3,7 +3,6 @@
 require "rails_helper"
 
 RSpec.describe DiscourseTeambuild::TargetsController do
-
   it "returns 404 when anonymous" do
     SiteSetting.teambuild_enabled = true
     get "/team-build/targets.json"
@@ -29,7 +28,7 @@ RSpec.describe DiscourseTeambuild::TargetsController do
       fab!(:target) do
         TeambuildTarget.create!(
           target_type_id: TeambuildTarget.target_types[:regular],
-          name: 'cool'
+          name: "cool",
         )
       end
 
@@ -44,53 +43,66 @@ RSpec.describe DiscourseTeambuild::TargetsController do
         expect(response.code).to eq("200")
         json = JSON.parse(response.body)
         expect(json).to be_present
-        json_target = json['teambuild_targets'].find { |t| t['id'] == target.id }
+        json_target = json["teambuild_targets"].find { |t| t["id"] == target.id }
 
         expect(json_target).to be_present
-        expect(json_target['name']).to eq(target.name)
-        expect(json_target['target_type_id']).to eq(target.target_type_id)
+        expect(json_target["name"]).to eq(target.name)
+        expect(json_target["target_type_id"]).to eq(target.target_type_id)
       end
 
       it "creates the object" do
-        post "/team-build/targets.json", params: {
-          teambuild_target: { name: 'cool target name', target_type_id: TeambuildTarget.target_types[:regular] }
-        }
+        post "/team-build/targets.json",
+             params: {
+               teambuild_target: {
+                 name: "cool target name",
+                 target_type_id: TeambuildTarget.target_types[:regular],
+               },
+             }
         expect(response.code).to eq("200")
         json = JSON.parse(response.body)
         expect(json).to be_present
-        expect(json['teambuild_target']).to be_present
-        expect(json['teambuild_target']['name']).to eq('cool target name')
-        t = TeambuildTarget.find_by(id: json['teambuild_target']['id'])
+        expect(json["teambuild_target"]).to be_present
+        expect(json["teambuild_target"]["name"]).to eq("cool target name")
+        t = TeambuildTarget.find_by(id: json["teambuild_target"]["id"])
         expect(t).to be_present
       end
 
       it "returns an error if group is missing" do
-        post "/team-build/targets.json", params: {
-          teambuild_target: { name: 'missing group', target_type_id: TeambuildTarget.target_types[:user_group] }
-        }
+        post "/team-build/targets.json",
+             params: {
+               teambuild_target: {
+                 name: "missing group",
+                 target_type_id: TeambuildTarget.target_types[:user_group],
+               },
+             }
         expect(response.code).to eq("422")
       end
 
       it "creates the object with a group" do
         group_id = Group.pluck_first(:id)
-        post "/team-build/targets.json", params: {
-          teambuild_target: {
-            name: 'cool target name',
-            target_type_id: TeambuildTarget.target_types[:user_group],
-            group_id: group_id
-          }
-        }
+        post "/team-build/targets.json",
+             params: {
+               teambuild_target: {
+                 name: "cool target name",
+                 target_type_id: TeambuildTarget.target_types[:user_group],
+                 group_id: group_id,
+               },
+             }
         expect(response.code).to eq("200")
         json = JSON.parse(response.body)
         expect(json).to be_present
-        expect(json['teambuild_target']).to be_present
-        expect(json['teambuild_target']['name']).to eq('cool target name')
-        expect(json['teambuild_target']['group_id']).to eq(group_id)
+        expect(json["teambuild_target"]).to be_present
+        expect(json["teambuild_target"]["name"]).to eq("cool target name")
+        expect(json["teambuild_target"]["group_id"]).to eq(group_id)
       end
 
       it "destroys the object" do
         id = target.id
-        TeambuildTargetUser.create!(user_id: user.id, teambuild_target_id: id, target_user_id: user.id)
+        TeambuildTargetUser.create!(
+          user_id: user.id,
+          teambuild_target_id: id,
+          target_user_id: user.id,
+        )
         delete "/team-build/targets/#{id}.json"
         expect(response.code).to eq("200")
         expect(TeambuildTarget.find_by(id: id)).to be_blank
@@ -98,31 +110,33 @@ RSpec.describe DiscourseTeambuild::TargetsController do
       end
 
       it "updates the object" do
-        put "/team-build/targets/#{target.id}.json", params: {
-          teambuild_target: { name: 'updated name' }
-        }
+        put "/team-build/targets/#{target.id}.json",
+            params: {
+              teambuild_target: {
+                name: "updated name",
+              },
+            }
         expect(response.code).to eq("200")
         json = JSON.parse(response.body)
         expect(json).to be_present
-        expect(json['teambuild_target']).to be_present
-        expect(json['teambuild_target']['name']).to eq('updated name')
+        expect(json["teambuild_target"]).to be_present
+        expect(json["teambuild_target"]["name"]).to eq("updated name")
       end
 
       it "can swap the position of targets" do
-        other = TeambuildTarget.create!(target_type_id: TeambuildTarget.target_types[:regular], name: 'another')
+        other =
+          TeambuildTarget.create!(
+            target_type_id: TeambuildTarget.target_types[:regular],
+            name: "another",
+          )
         other_position = other.position
         target_position = target.position
 
-        put "/team-build/targets/#{target.id}/swap-position.json", params: {
-          other_id: other.id
-        }
+        put "/team-build/targets/#{target.id}/swap-position.json", params: { other_id: other.id }
         expect(response.code).to eq("200")
         expect(target.reload.position).to eq(other_position)
         expect(other.reload.position).to eq(target_position)
       end
-
     end
-
   end
-
 end
