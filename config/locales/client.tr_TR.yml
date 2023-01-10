@@ -5,3 +5,32 @@
 # https://translate.discourse.org/
 
 tr_TR:
+  js:
+    discourse_teambuild:
+      targets:
+        create: "Hedef Oluştur"
+        types:
+          regular: "Normal"
+          user_group: "Kullanıcı Grubu"
+        name: "Hedef İsmi"
+        save: "kaydet"
+        cancel: "iptal et"
+        edit: "düzenle"
+        delete: "sil"
+        choose_group: "(bir grup seçin)"
+      manage:
+        title: "Yönet"
+        get_started: "Başlamak için bir hedef oluşturun."
+      scores:
+        title: "Yüksek Puanlar"
+        none: "Henüz kimse katılmadı."
+        rank: "Rütbe"
+        user: "Kullanıcı"
+        score: "Puan"
+      progress:
+        title: "İlerleme"
+        completed: "Tamamlandı"
+        none: "Şu anda yapacak bir şey yok. İşler muhtemelen henüz yapılandırılmamıştır."
+        mark_complete: "Tamamlandı olarak işaretle"
+        mark_incomplete: "Tamamlanmadı olarak işaretle"
+      complete: "Tamamlandı"

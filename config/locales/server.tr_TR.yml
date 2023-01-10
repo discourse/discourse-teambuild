@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 tr_TR:
+  site_settings:
+    teambuild_enabled: Ekip Geliştirme Egzersizini Etkinleştirin
+    teambuild_access_group: Ekip Geliştirme Egzersizine erişebilen grup
+    teambuild_name: Ekip geliştirme oyununuzun adı
+    teambuild_description: Ekip geliştirme arayüzünün üst kısmında görüntülenecek isteğe bağlı bir mesaj
