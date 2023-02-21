@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 lt:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Nuolatinės"
+        save: "išsaugoti"
+        cancel: "atšaukti"
+        edit: "redaguoti"
+        delete: "pašalinti"
+      manage:
+        title: "Redaguoti"
+      scores:
+        user: "Narys"
+        score: "Rezultatas"

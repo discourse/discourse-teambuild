@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 lv:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Regulārs"
+        save: "saglabāt"
+        cancel: "atcelt"
+        edit: "rediģēt"
+        delete: "dzēst"
+      manage:
+        title: "Pārvaldīt"
+      scores:
+        user: "Lietotājs"
+        score: "Rezultāts"

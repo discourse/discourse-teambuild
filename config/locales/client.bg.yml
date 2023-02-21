@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 bg:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Редовен"
+        save: "запази "
+        cancel: "прекрати"
+        edit: "промени"
+        delete: "изтрий"
+      manage:
+        title: "Управление"
+      scores:
+        user: "Потребител"
+        score: "Точки"

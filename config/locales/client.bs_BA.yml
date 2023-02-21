@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 bs_BA:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Normalno"
+        save: "save"
+        cancel: "otkaži"
+        edit: "uredi"
+        delete: "delete"
+      manage:
+        title: "Uredi"
+      scores:
+        user: "User"
+        score: "bodovi"

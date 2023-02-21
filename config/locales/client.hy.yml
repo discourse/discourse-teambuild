@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 hy:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Սովորական"
+        save: "պահպանել"
+        cancel: "չեղարկել"
+        edit: "խմբագրել"
+        delete: "ջնջել"
+      manage:
+        title: "Կառավարել"
+      scores:
+        user: "Օգտատեր"
+        score: "Քանակ"

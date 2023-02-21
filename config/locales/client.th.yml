@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 th:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "ทั่วไป"
+        save: "บันทึก"
+        cancel: "ยกเลิก"
+        edit: "แก้ไข"
+        delete: "ลบ"
+      manage:
+        title: "จัดการ"
+      scores:
+        user: "ผู้ใช้"
+        score: "คะแนน"

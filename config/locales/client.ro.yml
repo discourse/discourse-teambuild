@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 ro:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Utilizator frecvent"
+        save: "salvare"
+        cancel: "Anulează"
+        edit: "Editează"
+        delete: "șterge"
+      manage:
+        title: "Gestionează"
+      scores:
+        user: "Utilizatori"
+        score: "Scor"

@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 te:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "రెగ్యులరు"
+        save: "భద్రపరుచు"
+        cancel: "రద్దు"
+        edit: "సవరణ"
+        delete: "తొలగించు"
+      scores:
+        user: "సభ్యుడు"

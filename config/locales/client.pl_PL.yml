@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 pl_PL:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Stały bywalec"
+        save: "zapisz"
+        cancel: "anuluj"
+        edit: "edytuj"
+        delete: "usuń"
+      manage:
+        title: "Zarządzaj"
+      scores:
+        user: "Użytkownik"
+        score: "Wynik"

@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 pt:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Habitual"
+        save: "guardar"
+        cancel: "cancelar"
+        edit: "editar"
+        delete: "eliminar"
+      manage:
+        title: "Gerir"
+      scores:
+        user: "Utilizador"
+        score: "Pontuação"

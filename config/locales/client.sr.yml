@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 sr:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Stalni član"
+        save: "sačuvaj"
+        cancel: "otkaži"
+        edit: "izmeni"
+        delete: "obriši"
+      scores:
+        user: "Korisnik"

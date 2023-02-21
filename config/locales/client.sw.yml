@@ -5,3 +5,16 @@
 # https://translate.discourse.org/
 
 sw:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Kawaida"
+        save: "hifadhi"
+        cancel: "ghairi"
+        edit: "hariri"
+        delete: "futa"
+      manage:
+        title: "Simamia"
+      scores:
+        user: "Mtumiaji"

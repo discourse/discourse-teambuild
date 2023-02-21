@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 sl:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Običajne"
+        save: "shrani"
+        cancel: "prekliči"
+        edit: "uredi"
+        delete: "izbriši"
+      manage:
+        title: "Upravljaj"
+      scores:
+        user: "Uporabnik"
+        score: "Ocena"

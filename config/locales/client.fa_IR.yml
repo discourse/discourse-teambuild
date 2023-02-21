@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 fa_IR:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "معمولی"
+        save: "ذخیره"
+        cancel: "لغو"
+        edit: "ویرایش"
+        delete: "حذف"
+      manage:
+        title: "مدیریت"
+      scores:
+        user: "کاربر"
+        score: "امتیاز"

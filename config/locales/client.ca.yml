@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 ca:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Habitual"
+        save: "desa"
+        cancel: "cancel·la"
+        edit: "edita"
+        delete: "suprimeix"
+      manage:
+        title: "Gestiona"
+      scores:
+        user: "Usuari"
+        score: "Puntuació"
