@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 el:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Τακτικός"
+        save: "αποθήκευση"
+        cancel: "ακύρωση"
+        edit: "επεξεργασία"
+        delete: "σβήσιμο"
+      manage:
+        title: "Διαχειριστείτε"
+      scores:
+        user: "Χρήστης"
+        score: "Βαθμολογία"

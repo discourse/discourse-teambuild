@@ -5,3 +5,15 @@
 # https://translate.discourse.org/
 
 be:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "рэгулярнае"
+        save: "стварыць..."
+        cancel: "адмена"
+        edit: "правіць"
+        delete: "выдаляць"
+      scores:
+        user: "карыстальнік"
+        score: "кошт"

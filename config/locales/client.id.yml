@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 id:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Umum"
+        save: "simpan"
+        cancel: "batal"
+        edit: "ubah"
+        delete: "hapus"
+      manage:
+        title: "Mengelola"
+      scores:
+        user: "Pengguna"
+        score: "Skor"

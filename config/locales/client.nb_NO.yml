@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 nb_NO:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Aktivt medlem"
+        save: "lagre"
+        cancel: "avbryt"
+        edit: "endre"
+        delete: "slett"
+      manage:
+        title: "Behandle"
+      scores:
+        user: "Bruker"
+        score: "Poeng"

@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 gl:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Normal"
+        save: "gardar"
+        cancel: "cancelar"
+        edit: "editar"
+        delete: "eliminar"
+      manage:
+        title: "Xestionar"
+      scores:
+        user: "Usuario"
+        score: "Puntuación"

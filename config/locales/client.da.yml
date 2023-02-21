@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 da:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Almindelig"
+        save: "gem"
+        cancel: "annuller"
+        edit: "rediger"
+        delete: "slet"
+      manage:
+        title: "Administrér"
+      scores:
+        user: "Bruger"
+        score: "Score"

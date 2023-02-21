@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 et:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Püsiliige"
+        save: "salvesta"
+        cancel: "tühista"
+        edit: "muuda"
+        delete: "kustuta"
+      manage:
+        title: "Halda"
+      scores:
+        user: "Kasutaja"
+        score: "Skoor"

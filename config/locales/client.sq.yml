@@ -5,3 +5,14 @@
 # https://translate.discourse.org/
 
 sq:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "I zakonshëm"
+        save: "ruaj"
+        cancel: "anulo"
+        edit: "redakto"
+        delete: "fshij"
+      scores:
+        user: "User"

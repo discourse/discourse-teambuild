@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 hu:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Rendes tag"
+        save: "mentés"
+        cancel: "mégse"
+        edit: "szerkesztés"
+        delete: "törlés"
+      manage:
+        title: "Kezelés"
+      scores:
+        user: "Felhasználó"
+        score: "Pontszám"

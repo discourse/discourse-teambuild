@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 ko:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "정회원"
+        save: "저장"
+        cancel: "취소"
+        edit: "편집"
+        delete: "삭제하기"
+      manage:
+        title: "관리"
+      scores:
+        user: "사용자"
+        score: "점수"

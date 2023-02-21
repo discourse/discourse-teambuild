@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 vi:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Đều đặn"
+        save: "lưu lại"
+        cancel: "hủy"
+        edit: "sửa"
+        delete: "xóa"
+      manage:
+        title: "Quản lý"
+      scores:
+        user: "Người dùng"
+        score: "Điểm số"

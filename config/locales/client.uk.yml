@@ -5,3 +5,17 @@
 # https://translate.discourse.org/
 
 uk:
+  js:
+    discourse_teambuild:
+      targets:
+        types:
+          regular: "Звичайний"
+        save: "зберегти"
+        cancel: "скасувати"
+        edit: "редагувати"
+        delete: "видалити"
+      manage:
+        title: "Керувати"
+      scores:
+        user: "Користувач"
+        score: "Бал"
