@@ -18,15 +18,15 @@
           </td>
           <td class="user">
             {{#if s.me}}
-              {{#link-to "teamBuild.progress"}}
+              <LinkTo @route="teamBuild.progress">
                 {{avatar s imageSize="medium"}}
                 {{s.username}}
-              {{/link-to}}
+              </LinkTo>
             {{else}}
-              {{#link-to "teamBuild.show" s.username_lower}}
+              <LinkTo @route="teamBuild.show" @model={{s.username_lower}}>
                 {{avatar s imageSize="medium"}}
                 {{s.username}}
-              {{/link-to}}
+              </LinkTo>
             {{/if}}
           </td>
           <td class="score">{{s.score}}</td>

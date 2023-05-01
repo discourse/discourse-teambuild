@@ -5,31 +5,31 @@
         <div class="target-types">
           {{#each targetTypes as |type|}}
             <label>
-              {{radio-button
-                class=type.name
-                value=type.id
-                selection=buffered.target_type_id
-                onChange=(action (mut buffered.target_type_id) type.id)
-              }}
+              <RadioButton
+                @class={{type.name}}
+                @value={{type.id}}
+                @selection={{buffered.target_type_id}}
+                @onChange={{action (mut buffered.target_type_id) type.id}}
+              />
               {{i18n (concat "discourse_teambuild.targets.types." type.name)}}
             </label>
           {{/each}}
         </div>
 
         <div class="target-name">
-          {{input
-            value=buffered.name
-            placeholder=(i18n "discourse_teambuild.targets.name")
+          <Input
+            @value={{buffered.name}}
+            placeholder={{i18n "discourse_teambuild.targets.name"}}
             autofocus="true"
-          }}
+          />
         </div>
 
         {{#if needsGroup}}
-          {{combo-box
-            content=groups
-            value=buffered.group_id
-            none="discourse_teambuild.targets.choose_group"
-          }}
+          <ComboBox
+            @content={{groups}}
+            @value={{buffered.group_id}}
+            @none="discourse_teambuild.targets.choose_group"
+          />
         {{/if}}
       </div>
     {{else}}
@@ -43,42 +43,42 @@
   </div>
   <div class="controls">
     {{#if canMoveUp}}
-      {{d-button icon="arrow-up" action=moveUp}}
+      <DButton @icon="arrow-up" @action={{moveUp}} />
     {{/if}}
 
     {{#if canMoveDown}}
-      {{d-button icon="arrow-down" action=moveDown}}
+      <DButton @icon="arrow-down" @action={{moveDown}} />
     {{/if}}
 
     {{#if editing}}
-      {{d-button
+      <DButton
         class="btn-primary save"
-        icon="check"
-        title="discourse_teambuild.targets.save"
-        action=(action "save")
-        disabled=saveDisabled
-      }}
+        @icon="check"
+        @title="discourse_teambuild.targets.save"
+        @action={{action "save"}}
+        @disabled={{saveDisabled}}
+      />
 
-      {{d-button
+      <DButton
         class="btn-danger cancel"
-        icon="times"
-        action=(action "cancel")
-        title="discourse_teambuild.targets.cancel"
-      }}
+        @icon="times"
+        @action={{action "cancel"}}
+        @title="discourse_teambuild.targets.cancel"
+      />
     {{else}}
-      {{d-button
+      <DButton
         class="edit"
-        icon="pencil-alt"
-        title="discourse_teambuild.targets.edit"
-        action=(action (mut editSelected) true)
-      }}
+        @icon="pencil-alt"
+        @title="discourse_teambuild.targets.edit"
+        @action={{action (mut editSelected) true}}
+      />
 
-      {{d-button
+      <DButton
         class="btn-danger destroy"
-        icon="trash-alt"
-        title="discourse_teambuild.targets.delete"
-        action=(action "destroy")
-      }}
+        @icon="trash-alt"
+        @title="discourse_teambuild.targets.delete"
+        @action={{action "destroy"}}
+      />
 
     {{/if}}
   </div>
