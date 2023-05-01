@@ -55,14 +55,14 @@
         class="btn-primary save"
         @icon="check"
         @title="discourse_teambuild.targets.save"
-        @action={{this.save}}
+        @action={{action "save"}}
         @disabled={{saveDisabled}}
       />
 
       <DButton
         class="btn-danger cancel"
         @icon="times"
-        @action={{this.cancel}}
+        @action={{action "cancel"}}
         @title="discourse_teambuild.targets.cancel"
       />
     {{else}}
@@ -77,7 +77,7 @@
         class="btn-danger destroy"
         @icon="trash-alt"
         @title="discourse_teambuild.targets.delete"
-        @action={{this.destroy}}
+        @action={{action "destroy"}}
       />
 
     {{/if}}
