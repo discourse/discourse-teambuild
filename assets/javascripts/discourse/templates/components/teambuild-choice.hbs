@@ -1,4 +1,4 @@
-<div class="teambuild-choice {{if completed "completed" "incomplete"}}">
+<div class="teambuild-choice {{if completed 'completed' 'incomplete'}}">
   <div class="controls">
     {{#if readOnly}}
       {{#if completed}}
@@ -9,7 +9,7 @@
         <DButton
           @icon="check"
           @action={{action "undo"}}
-          @class="btn-primary"
+          class="btn-primary"
           @title="discourse_teambuild.progress.mark_incomplete"
         />
       {{else}}
