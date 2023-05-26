@@ -21,23 +21,23 @@
         <div class="description">{{replace-emoji target.name}}</div>
         <div class="target-choices multi-choice">
           {{#each target.users as |u|}}
-            {{teambuild-choice
-              label=u.username
-              progress=progress
-              target=target
-              userId=u.id
-              readOnly=readOnly
-            }}
+            <TeambuildChoice
+              @label={{u.username}}
+              @progress={{progress}}
+              @target={{target}}
+              @userId={{u.id}}
+              @readOnly={{readOnly}}
+            />
           {{/each}}
         </div>
       {{else}}
-        {{teambuild-choice
-          label=(replace-emoji target.name)
-          progress=progress
-          target=target
-          userId=progress.user.id
-          readOnly=readOnly
-        }}
+        <TeambuildChoice
+          @label={{replace-emoji target.name}}
+          @progress={{progress}}
+          @target={{target}}
+          @userId={{progress.user.id}}
+          @readOnly={{readOnly}}
+        />
       {{/if}}
     </div>
   {{else}}
