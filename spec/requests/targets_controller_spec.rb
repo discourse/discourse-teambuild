@@ -79,7 +79,7 @@ RSpec.describe DiscourseTeambuild::TargetsController do
       end
 
       it "creates the object with a group" do
-        group_id = Group.pluck_first(:id)
+        group_id = Group.pick(:id)
         post "/team-build/targets.json",
              params: {
                teambuild_target: {
