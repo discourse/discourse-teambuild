@@ -41,8 +41,8 @@ module DiscourseTeambuild
     end
 
     def swap_position
-      target_position = TeambuildTarget.where(id: params[:target_id]).pluck_first(:position)
-      other_position = TeambuildTarget.where(id: params[:other_id]).pluck_first(:position)
+      target_position = TeambuildTarget.where(id: params[:target_id]).pick(:position)
+      other_position = TeambuildTarget.where(id: params[:other_id]).pick(:position)
       raise Discourse::NotFound if target_position.nil? || other_position.nil?
 
       TeambuildTarget.transaction do
