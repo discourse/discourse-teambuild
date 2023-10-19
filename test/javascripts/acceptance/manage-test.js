@@ -94,9 +94,8 @@ acceptance("Team Building: Manage", function (needs) {
 
     await click(".sidebar-more-section-links-details-summary");
 
-    assert.strictEqual(
-      query(".sidebar-section-link[data-link-name='team-building']").innerText,
-      "Team Building"
-    );
+    assert
+      .dom(".sidebar-section-link[data-link-name='team-building']")
+      .hasText("Team Building");
   });
 });
