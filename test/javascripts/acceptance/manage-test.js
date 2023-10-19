@@ -7,7 +7,7 @@ import { click, fillIn, visit } from "@ember/test-helpers";
 import { test } from "qunit";
 
 acceptance("Team Building: Manage", function (needs) {
-  needs.user();
+  needs.user({ can_access_teambuild: true });
   needs.pretender((server, helper) => {
     server.get("/team-build/targets.json", () => {
       return helper.response(200, {
@@ -86,6 +86,17 @@ acceptance("Team Building: Manage", function (needs) {
     assert.strictEqual(
       query(".teambuild-target .target-name").innerText.trim(),
       "New Name"
+    );
+  });
+
+  test("has links in sidebar", async (assert) => {
+    await visit("/team-build/manage");
+
+    await click(".sidebar-more-section-links-details-summary");
+
+    assert.strictEqual(
+      query(".sidebar-section-link[data-link-name='team-building']").innerText,
+      "Team Building"
     );
   });
 });
