@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 # name: discourse-teambuild
-# about: Team Building Exercise for Discourse
+# about: Allows admins to run team building scavenger hunt and checklist activities.
+# meta_topic_id: 134907
 # version: 0.0.1
 # authors: Robin Ward
 # url: https://github.com/discourse/discourse-teambuild
