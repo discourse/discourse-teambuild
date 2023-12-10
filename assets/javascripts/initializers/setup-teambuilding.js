@@ -8,21 +8,10 @@ export default {
       if (currentUser?.can_access_teambuild) {
         api.addCommunitySectionLink((baseSectionLink) => {
           return class TeambuildSectionLink extends baseSectionLink {
-            get name() {
-              return "team-building";
-            }
-
-            get route() {
-              return "teamBuild.progress";
-            }
-
-            get text() {
-              return this.siteSettings.teambuild_name;
-            }
-
-            get title() {
-              return this.siteSettings.teambuild_name;
-            }
+            name = "team-building";
+            route = "teamBuild.progress";
+            text = this.siteSettings.teambuild_name;
+            title = this.siteSettings.teambuild_name;
           };
         });
       }
