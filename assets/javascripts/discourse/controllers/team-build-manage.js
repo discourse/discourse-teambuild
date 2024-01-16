@@ -1,6 +1,6 @@
 import Controller from "@ember/controller";
-import { Types } from "discourse/plugins/discourse-teambuild/discourse/models/teambuild-target";
 import { sort } from "@ember/object/computed";
+import { Types } from "discourse/plugins/discourse-teambuild/discourse/models/teambuild-target";
 
 export default Controller.extend({
   targets: null,

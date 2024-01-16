@@ -1,10 +1,10 @@
 import Component from "@ember/component";
 import { computed } from "@ember/object";
-import { Types } from "discourse/plugins/discourse-teambuild/discourse/models/teambuild-target";
-import { bufferedProperty } from "discourse/mixins/buffered-content";
-import { underscore } from "@ember/string";
 import { equal, or } from "@ember/object/computed";
+import { underscore } from "@ember/string";
 import { popupAjaxError } from "discourse/lib/ajax-error";
+import { bufferedProperty } from "discourse/mixins/buffered-content";
+import { Types } from "discourse/plugins/discourse-teambuild/discourse/models/teambuild-target";
 
 export default Component.extend(bufferedProperty("target"), {
   tagName: "",
@@ -59,14 +59,14 @@ export default Component.extend(bufferedProperty("target"), {
     },
     cancel() {
       if (this.target.isNew) {
-        return this.attrs.removeTarget();
+        return this.removeTarget();
       } else {
         this.set("editSelected", false);
         this.rollbackBuffer();
       }
     },
     destroy() {
-      this.target.destroyRecord().then(() => this.attrs.removeTarget());
+      this.target.destroyRecord().then(() => this.removeTarget());
     },
   },
 });

@@ -1,5 +1,5 @@
-import RestModel from "discourse/models/rest";
 import { popupAjaxError } from "discourse/lib/ajax-error";
+import RestModel from "discourse/models/rest";
 
 function choiceKey(target, userId) {
   return `${target.id}:${userId}`;
