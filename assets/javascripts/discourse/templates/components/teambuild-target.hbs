@@ -6,10 +6,10 @@
           {{#each targetTypes as |type|}}
             <label>
               <RadioButton
-                @class={{type.name}}
                 @value={{type.id}}
                 @selection={{buffered.target_type_id}}
                 @onChange={{action (mut buffered.target_type_id) type.id}}
+                class={{type.name}}
               />
               {{i18n (concat "discourse_teambuild.targets.types." type.name)}}
             </label>
@@ -52,34 +52,33 @@
 
     {{#if editing}}
       <DButton
-        class="btn-primary save"
         @icon="check"
         @title="discourse_teambuild.targets.save"
         @action={{action "save"}}
         @disabled={{saveDisabled}}
+        class="btn-primary save"
       />
 
       <DButton
-        class="btn-danger cancel"
         @icon="times"
         @action={{action "cancel"}}
         @title="discourse_teambuild.targets.cancel"
+        class="btn-danger cancel"
       />
     {{else}}
       <DButton
-        class="edit"
         @icon="pencil-alt"
         @title="discourse_teambuild.targets.edit"
         @action={{action (mut editSelected) true}}
+        class="edit"
       />
 
       <DButton
-        class="btn-danger destroy"
         @icon="trash-alt"
         @title="discourse_teambuild.targets.delete"
         @action={{action "destroy"}}
+        class="btn-danger destroy"
       />
-
     {{/if}}
   </div>
 </div>

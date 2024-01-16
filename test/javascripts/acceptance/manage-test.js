@@ -1,10 +1,10 @@
+import { click, fillIn, visit } from "@ember/test-helpers";
+import { test } from "qunit";
 import {
   acceptance,
   count,
   query,
 } from "discourse/tests/helpers/qunit-helpers";
-import { click, fillIn, visit } from "@ember/test-helpers";
-import { test } from "qunit";
 
 acceptance("Team Building: Manage", function (needs) {
   needs.user({ can_access_teambuild: true });

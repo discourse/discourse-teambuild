@@ -6,7 +6,6 @@
 # version: 0.0.1
 # authors: Robin Ward
 # url: https://github.com/discourse/discourse-teambuild
-# transpile_js: true
 
 load File.expand_path("../lib/discourse_teambuild/engine.rb", __FILE__)
 
