@@ -5,6 +5,8 @@ require_dependency "teambuild_target_serializer"
 
 module DiscourseTeambuild
   class TargetsController < ApplicationController
+    requires_plugin PLUGIN_NAME
+
     requires_login
     before_action :ensure_enabled
 

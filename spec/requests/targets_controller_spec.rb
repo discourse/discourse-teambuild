@@ -32,10 +32,10 @@ RSpec.describe DiscourseTeambuild::TargetsController do
         )
       end
 
-      it "returns 403 when disabled" do
+      it "returns 404 when disabled" do
         SiteSetting.teambuild_enabled = false
         get "/team-build/targets.json"
-        expect(response.code).to eq("403")
+        expect(response.code).to eq("404")
       end
 
       it "returns json" do

@@ -10,14 +10,14 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
   end
 
   context "when logged in" do
-    fab!(:user) { Fabricate(:user) }
+    fab!(:user)
     fab!(:target) do
       TeambuildTarget.create!(
         name: "test target",
         target_type_id: TeambuildTarget.target_types[:regular],
       )
     end
-    fab!(:group) { Fabricate(:group) }
+    fab!(:group)
 
     before do
       SiteSetting.teambuild_enabled = true
@@ -27,10 +27,10 @@ RSpec.describe DiscourseTeambuild::TeambuildController do
     end
 
     context "when enabled/disabled" do
-      it "returns 403 when disabled" do
+      it "returns 404 when disabled" do
         SiteSetting.teambuild_enabled = false
         get "/team-build/scores.json"
-        expect(response.code).to eq("403")
+        expect(response.code).to eq("404")
       end
 
       it "returns 200 when enabled" do
