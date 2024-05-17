@@ -5,6 +5,8 @@ require_dependency "teambuild_progress_serializer"
 
 module DiscourseTeambuild
   class TeambuildController < ApplicationController
+    requires_plugin PLUGIN_NAME
+
     requires_login
     before_action :ensure_can_access
 

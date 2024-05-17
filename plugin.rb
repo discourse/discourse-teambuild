@@ -7,7 +7,7 @@
 # authors: Robin Ward
 # url: https://github.com/discourse/discourse-teambuild
 
-load File.expand_path("../lib/discourse_teambuild/engine.rb", __FILE__)
+require_relative "lib/discourse_teambuild/engine"
 
 enabled_site_setting :teambuild_enabled
 
