@@ -4,18 +4,18 @@
 # To work with us on translations, join this project:
 # https://translate.discourse.org/
 
-sk:
+ug:
   js:
     discourse_teambuild:
       targets:
         types:
-          regular: "Bežné"
-        save: "uložiť"
-        cancel: "zrušiť"
-        edit: "uprav"
-        delete: "odstrániť"
+          regular: "ئادەتتىكى"
+        save: "ساقلا"
+        cancel: "ۋاز كەچ"
+        edit: "تەھرىر"
+        delete: "ئۆچۈر"
       manage:
-        title: "Spravovať"
+        title: "باشقۇرۇش"
       scores:
-        user: "Používateľ"
-        score: "Skóre"
+        user: "ئىشلەتكۈچى"
+        score: "نومۇر"

@@ -14,5 +14,8 @@ te:
         cancel: "రద్దు"
         edit: "సవరణ"
         delete: "తొలగించు"
+      manage:
+        title: "నిర్వహించండి"
       scores:
         user: "సభ్యుడు"
+        score: "స్కోర్"
