@@ -18,7 +18,7 @@ module DiscourseTeambuild
         rest_serializer: true,
         root: "teambuild_targets",
         extras: {
-          groups: Group.all,
+          groups: serialize_data(Group.all, BasicGroupSerializer),
         },
       )
     end
