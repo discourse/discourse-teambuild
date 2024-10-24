@@ -23,3 +23,21 @@ class TeambuildTarget < ActiveRecord::Base
     self.position = (TeambuildTarget.maximum(:position) || 0) + 1
   end
 end
+
+# == Schema Information
+#
+# Table name: teambuild_targets
+#
+#  id             :bigint           not null, primary key
+#  name           :string           not null
+#  target_type_id :integer          not null
+#  group_id       :integer
+#  position       :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+# Indexes
+#
+#  index_teambuild_targets_on_name      (name) UNIQUE
+#  index_teambuild_targets_on_position  (position) UNIQUE
+#
