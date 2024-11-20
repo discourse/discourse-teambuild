@@ -1,11 +1,11 @@
 <div class="teambuild-manage">
-  {{#if targets}}
-    {{#each sortedTargets as |target idx|}}
+  {{#if this.targets}}
+    {{#each this.sortedTargets as |target idx|}}
       <TeambuildTarget
         @target={{target}}
-        @groups={{groups}}
+        @groups={{this.groups}}
         @index={{idx}}
-        @length={{sortedTargets.length}}
+        @length={{this.sortedTargets.length}}
         @removeTarget={{action "removeTarget" target}}
         @moveUp={{action "move" idx -1}}
         @moveDown={{action "move" idx 1}}
