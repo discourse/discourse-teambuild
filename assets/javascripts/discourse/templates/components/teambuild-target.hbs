@@ -1,14 +1,14 @@
-<div class="teambuild-target {{if editing 'editing'}}">
+<div class="teambuild-target {{if this.editing 'editing'}}">
   <div class="target-details">
-    {{#if editing}}
+    {{#if this.editing}}
       <div class="fields">
         <div class="target-types">
-          {{#each targetTypes as |type|}}
+          {{#each this.targetTypes as |type|}}
             <label>
               <RadioButton
                 @value={{type.id}}
-                @selection={{buffered.target_type_id}}
-                @onChange={{action (mut buffered.target_type_id) type.id}}
+                @selection={{this.buffered.target_type_id}}
+                @onChange={{action (mut this.buffered.target_type_id) type.id}}
                 class={{type.name}}
               />
               {{i18n (concat "discourse_teambuild.targets.types." type.name)}}
@@ -18,44 +18,44 @@
 
         <div class="target-name">
           <Input
-            @value={{buffered.name}}
+            @value={{this.buffered.name}}
             placeholder={{i18n "discourse_teambuild.targets.name"}}
             autofocus="true"
           />
         </div>
 
-        {{#if needsGroup}}
+        {{#if this.needsGroup}}
           <ComboBox
-            @content={{groups}}
-            @value={{buffered.group_id}}
+            @content={{this.groups}}
+            @value={{this.buffered.group_id}}
             @none="discourse_teambuild.targets.choose_group"
           />
         {{/if}}
       </div>
     {{else}}
       <div class="target-name">
-        {{replace-emoji target.name}}
+        {{replace-emoji this.target.name}}
       </div>
       <div class="target-group-name">
-        {{target.group_name}}
+        {{this.target.group_name}}
       </div>
     {{/if}}
   </div>
   <div class="controls">
-    {{#if canMoveUp}}
-      <DButton @icon="arrow-up" @action={{moveUp}} />
+    {{#if this.canMoveUp}}
+      <DButton @icon="arrow-up" @action={{this.moveUp}} />
     {{/if}}
 
-    {{#if canMoveDown}}
-      <DButton @icon="arrow-down" @action={{moveDown}} />
+    {{#if this.canMoveDown}}
+      <DButton @icon="arrow-down" @action={{this.moveDown}} />
     {{/if}}
 
-    {{#if editing}}
+    {{#if this.editing}}
       <DButton
         @icon="check"
         @title="discourse_teambuild.targets.save"
         @action={{action "save"}}
-        @disabled={{saveDisabled}}
+        @disabled={{this.saveDisabled}}
         class="btn-primary save"
       />
 
@@ -69,7 +69,7 @@
       <DButton
         @icon="pencil-alt"
         @title="discourse_teambuild.targets.edit"
-        @action={{action (mut editSelected) true}}
+        @action={{action (mut this.editSelected) true}}
         class="edit"
       />
 

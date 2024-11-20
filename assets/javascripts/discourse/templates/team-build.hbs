@@ -1,5 +1,5 @@
 <div class="team-build">
-  <h1>{{siteSettings.teambuild_name}}</h1>
+  <h1>{{this.siteSettings.teambuild_name}}</h1>
 
   <ul class="nav nav-pills">
     <NavItem
@@ -10,7 +10,7 @@
       @route="teamBuild.progress"
       @label="discourse_teambuild.progress.title"
     />
-    {{#if currentUser.staff}}
+    {{#if this.currentUser.staff}}
       <NavItem
         @route="teamBuild.manage"
         @label="discourse_teambuild.manage.title"

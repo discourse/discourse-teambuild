@@ -1,11 +1,11 @@
-<div class="teambuild-choice {{if completed 'completed' 'incomplete'}}">
+<div class="teambuild-choice {{if this.completed 'completed' 'incomplete'}}">
   <div class="controls">
-    {{#if readOnly}}
-      {{#if completed}}
+    {{#if this.readOnly}}
+      {{#if this.completed}}
         {{d-icon "check"}}
       {{/if}}
     {{else}}
-      {{#if completed}}
+      {{#if this.completed}}
         <DButton
           @icon="check"
           @action={{action "undo"}}
@@ -21,5 +21,5 @@
       {{/if}}
     {{/if}}
   </div>
-  <div class="choice-label">{{label}}</div>
+  <div class="choice-label">{{this.label}}</div>
 </div>
