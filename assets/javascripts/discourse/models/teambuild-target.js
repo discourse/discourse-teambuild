@@ -6,7 +6,7 @@ export const Types = {
   USER_GROUP: 2,
 };
 
-export default RestModel.extend({
+export default class TeambuildTarget extends RestModel {
   swapPosition(other) {
     let tmp = this.position;
     this.set("position", other.position);
@@ -16,17 +16,17 @@ export default RestModel.extend({
       method: "PUT",
       data: { other_id: other.id },
     });
-  },
+  }
 
   complete(userId) {
     return ajax(`/team-build/complete/${this.id}/${userId}`, {
       method: "PUT",
     });
-  },
+  }
 
   undo(userId) {
     return ajax(`/team-build/undo/${this.id}/${userId}`, {
       method: "DELETE",
     });
-  },
-});
+  }
+}
