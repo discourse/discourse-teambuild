@@ -5,10 +5,10 @@ function choiceKey(target, userId) {
   return `${target.id}:${userId}`;
 }
 
-export default RestModel.extend({
+export default class TeambuildProgress extends RestModel {
   isComplete(target, userId) {
     return this.completed.includes(choiceKey(target, userId));
-  },
+  }
 
   complete(target, userId) {
     target
@@ -17,7 +17,7 @@ export default RestModel.extend({
         this.completed.addObject(choiceKey(target, userId));
       })
       .catch(popupAjaxError);
-  },
+  }
 
   undo(target, userId) {
     target
@@ -26,5 +26,5 @@ export default RestModel.extend({
         this.completed.removeObject(choiceKey(target, userId));
       })
       .catch(popupAjaxError);
-  },
-});
+  }
+}

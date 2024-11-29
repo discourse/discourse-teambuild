@@ -1,19 +1,21 @@
 import Component from "@ember/component";
-import { computed } from "@ember/object";
+import { action, computed } from "@ember/object";
+import { tagName } from "@ember-decorators/component";
 
-export default Component.extend({
-  tagName: "",
-
-  completed: computed("progress.completed.[]", function () {
+@tagName("")
+export default class TeambuildChoice extends Component {
+  @computed("progress.completed.[]")
+  get completed() {
     return this.progress.isComplete(this.target, this.userId);
-  }),
+  }
 
-  actions: {
-    complete() {
-      this.progress.complete(this.target, this.userId);
-    },
-    undo() {
-      this.progress.undo(this.target, this.userId);
-    },
-  },
-});
+  @action
+  complete() {
+    this.progress.complete(this.target, this.userId);
+  }
+
+  @action
+  undo() {
+    this.progress.undo(this.target, this.userId);
+  }
+}
