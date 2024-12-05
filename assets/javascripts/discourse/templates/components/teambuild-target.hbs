@@ -60,21 +60,21 @@
       />
 
       <DButton
-        @icon="times"
+        @icon="xmark"
         @action={{action "cancel"}}
         @title="discourse_teambuild.targets.cancel"
         class="btn-danger cancel"
       />
     {{else}}
       <DButton
-        @icon="pencil-alt"
+        @icon="pencil"
         @title="discourse_teambuild.targets.edit"
         @action={{action (mut this.editSelected) true}}
         class="edit"
       />
 
       <DButton
-        @icon="trash-alt"
+        @icon="trash-can"
         @title="discourse_teambuild.targets.delete"
         @action={{action "destroy"}}
         class="btn-danger destroy"
