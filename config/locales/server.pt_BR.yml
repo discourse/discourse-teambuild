@@ -1,10 +1,4 @@
-# WARNING: Never edit this file.
-# It will be overwritten when translations are pulled from Crowdin.
-#
-# To work with us on translations, join this project:
-# https://translate.discourse.org/
-
-pt_BR:
+pt:
   site_settings:
     teambuild_enabled: Ative o exercício de formação de equipes
     teambuild_access_group: Grupo que pode acessar o exercício de formação de equipes
