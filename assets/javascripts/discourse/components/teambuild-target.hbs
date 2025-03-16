@@ -8,7 +8,7 @@
               <RadioButton
                 @value={{type.id}}
                 @selection={{this.buffered.target_type_id}}
-                @onChange={{action (mut this.buffered.target_type_id) type.id}}
+                @onChange={{fn (mut this.buffered.target_type_id) type.id}}
                 class={{type.name}}
               />
               {{i18n (concat "discourse_teambuild.targets.types." type.name)}}
@@ -54,14 +54,14 @@
       <DButton
         @icon="check"
         @title="discourse_teambuild.targets.save"
-        @action={{action "save"}}
+        @action={{this.save}}
         @disabled={{this.saveDisabled}}
         class="btn-primary save"
       />
 
       <DButton
         @icon="xmark"
-        @action={{action "cancel"}}
+        @action={{this.cancel}}
         @title="discourse_teambuild.targets.cancel"
         class="btn-danger cancel"
       />
@@ -69,14 +69,14 @@
       <DButton
         @icon="pencil"
         @title="discourse_teambuild.targets.edit"
-        @action={{action (mut this.editSelected) true}}
+        @action={{fn (mut this.editSelected) true}}
         class="edit"
       />
 
       <DButton
         @icon="trash-can"
         @title="discourse_teambuild.targets.delete"
-        @action={{action "destroy"}}
+        @action={{this.destroy}}
         class="btn-danger destroy"
       />
     {{/if}}
