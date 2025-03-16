@@ -26,7 +26,6 @@ export default class TeambuildTarget extends Component.extend(
     return !this.editing && this.index < this.length - 1;
   }
 
-  @computed
   get targetTypes() {
     return Object.keys(Types).map((key) => {
       return { id: Types[key], name: underscore(key) };
