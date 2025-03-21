@@ -2,15 +2,21 @@ import Component from "@ember/component";
 import { computed } from "@ember/object";
 import { equal, or } from "@ember/object/computed";
 import { underscore } from "@ember/string";
+import BufferedProxy from "ember-buffered-proxy/proxy";
 import { popupAjaxError } from "discourse/lib/ajax-error";
-import { bufferedProperty } from "discourse/mixins/buffered-content";
 import { Types } from "discourse/plugins/discourse-teambuild/discourse/models/teambuild-target";
 
-export default Component.extend(bufferedProperty("target"), {
+export default Component.extend({
   tagName: "",
   editSelected: false,
 
   needsGroup: equal("buffered.target_type_id", Types.USER_GROUP),
+
+  buffered: computed("target", function () {
+    return BufferedProxy.create({
+      content: this.get("target"),
+    });
+  }),
 
   canMoveUp: computed("editing", "index", function () {
     return !this.editing && this.index > 0;
@@ -62,7 +68,7 @@ export default Component.extend(bufferedProperty("target"), {
         return this.removeTarget();
       } else {
         this.set("editSelected", false);
-        this.rollbackBuffer();
+        this.buffered.discardChanges();
       }
     },
     destroy() {
