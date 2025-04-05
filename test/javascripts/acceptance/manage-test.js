@@ -44,11 +44,11 @@ acceptance("Team Building: Manage", function (needs) {
     await visit("/team-build/manage");
     await click(".create-target");
     assert.dom(".teambuild-target.editing").exists();
-    assert.dom(".teambuild-target.editing .save[disabled]").exists();
+    assert.dom(".teambuild-target.editing .save").isDisabled();
 
     await click(".teambuild-target.editing .target-types input.regular");
     await fillIn(".teambuild-target.editing .target-name input", "Cool target");
-    assert.dom(".teambuild-target.editing .save[disabled]").doesNotExist();
+    assert.dom(".teambuild-target.editing .save").isNotDisabled();
 
     await click(".teambuild-target.editing .save");
     assert.dom(".teambuild-target.editing").doesNotExist();
