@@ -56,7 +56,7 @@ acceptance("Team Building: Manage", function (needs) {
 
   test("can delete", async function (assert) {
     await visit("/team-build/manage");
-    assert.dom(".teambuild-target").exist();
+    assert.dom(".teambuild-target").exists();
 
     await click(".teambuild-target .destroy");
     assert.dom(".teambuild-target").doesNotExist();
