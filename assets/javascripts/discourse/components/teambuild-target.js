@@ -81,7 +81,7 @@ export default class TeambuildTarget extends Component {
   }
 
   @action
-  destroy() {
+  destroyTarget() {
     this.target.destroyRecord().then(() => this.removeTarget());
   }
 }
