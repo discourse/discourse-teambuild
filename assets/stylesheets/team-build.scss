@@ -11,31 +11,39 @@
 
 .high-scores {
   min-width: 300px;
+
   td {
     padding: 0.25em;
   }
+
   .user {
     .avatar {
       margin-right: 0.5em;
     }
+
     a {
       font-weight: bold;
       color: var(--primary-high);
     }
   }
+
   .rank {
     padding-left: 1em;
+
     .emoji {
       margin-left: 0.5em;
     }
   }
+
   td.score {
     font-size: 1.5em;
     text-align: center;
   }
+
   th.score {
     text-align: center;
   }
+
   tr.me {
     background-color: var(--highlight-medium);
   }
@@ -50,12 +58,14 @@
     font-size: 1.25em;
   }
 }
+
 .completed-score {
   margin-top: 1em;
   margin-bottom: 1em;
   font-size: 1.2em;
   font-weight: bold;
   display: flex;
+
   .username {
     color: var(--primary-medium);
     margin-right: 0.5em;
@@ -64,6 +74,7 @@
 
 .multi-choice {
   flex-wrap: wrap;
+
   .teambuild-choice {
     width: 200px;
   }
@@ -81,6 +92,7 @@
   &.completed {
     font-weight: bold;
   }
+
   .controls,
   .display-done {
     margin-right: 0.5em;
@@ -113,27 +125,29 @@
   align-items: center;
   justify-content: space-between;
 
-  .target-details {
-  }
-
   .target-types {
     display: flex;
+
     label {
       margin-right: 1em;
     }
   }
+
   .target-group-name {
     font-weight: bold;
   }
+
   .target-name {
     label {
       display: block;
     }
     margin-top: 0.5em;
+
     input {
       width: 500px;
     }
   }
+
   .controls {
     margin-left: 1em;
   }
