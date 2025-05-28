@@ -14,9 +14,9 @@ export default RouteTemplate(
             @groups={{@controller.groups}}
             @index={{idx}}
             @length={{@controller.sortedTargets.length}}
-            @removeTarget={{fn this.removeTarget target}}
-            @moveUp={{fn this.move idx -1}}
-            @moveDown={{fn this.move idx 1}}
+            @removeTarget={{fn @controller.removeTarget target}}
+            @moveUp={{fn @controller.move idx -1}}
+            @moveDown={{fn @controller.move idx 1}}
           />
         {{/each}}
       {{else}}
