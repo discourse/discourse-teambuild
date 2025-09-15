@@ -5,3 +5,8 @@
 # https://translate.discourse.org/
 
 pt:
+  site_settings:
+    teambuild_enabled: Ativar o Team Building Exercise
+    teambuild_access_group: Grupo que pode acerder a Team Building Exercise
+    teambuild_name: O nome do seu jogo de criação de equipa
+    teambuild_description: Uma mensagem opcional para ser exibida na parte superior da interface da criação de equipa.
