@@ -8,14 +8,29 @@ pt:
   js:
     discourse_teambuild:
       targets:
+        create: "Criar Objetivo"
         types:
-          regular: "Habitual"
+          regular: "Regular"
+          user_group: "Grupo de Utilizadores"
+        name: "Nome de Objetivo"
         save: "guardar"
         cancel: "cancelar"
         edit: "editar"
         delete: "eliminar"
+        choose_group: "(escolher um grupo)"
       manage:
         title: "Gerir"
+        get_started: "Crie um objetivo para começar."
       scores:
+        title: "Pontuações Elevadas"
+        none: "Ainda ninguém participou."
+        rank: "Posição"
         user: "Utilizador"
         score: "Pontuação"
+      progress:
+        title: "Progresso"
+        completed: "Concluído"
+        none: "Não há nada para fazer de momento. As coisas provavelmente ainda não foram configuradas."
+        mark_complete: "Marcar concluído"
+        mark_incomplete: "Marcar incompleto"
+      complete: "Concluído"
