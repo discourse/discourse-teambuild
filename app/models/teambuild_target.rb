@@ -6,7 +6,7 @@ class TeambuildTarget < ActiveRecord::Base
   has_many :teambuild_target_users, dependent: :destroy
 
   before_create :default_position
-  validates_uniqueness_of :name
+  validates :name, uniqueness: true
   default_scope { order(:position) }
 
   validates :group_id,
