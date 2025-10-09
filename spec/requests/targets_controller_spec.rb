@@ -17,7 +17,7 @@ RSpec.describe DiscourseTeambuild::TargetsController do
   end
 
   context "when logged in" do
-    fab!(:user) { Fabricate(:moderator) }
+    fab!(:user, :moderator)
 
     before do
       SiteSetting.teambuild_enabled = true
