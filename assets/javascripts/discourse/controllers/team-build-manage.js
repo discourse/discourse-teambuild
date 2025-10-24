@@ -1,6 +1,7 @@
 import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { sort } from "@ember/object/computed";
+import { removeValueFromArray } from "discourse/lib/array-tools";
 import { Types } from "discourse/plugins/discourse-teambuild/discourse/models/teambuild-target";
 
 export default class TeamBuildManageController extends Controller {
@@ -24,7 +25,7 @@ export default class TeamBuildManageController extends Controller {
     if (this.targets.length > 0) {
       maxPosition = Math.max(...this.targets.map((t) => t.position));
     }
-    this.targets.pushObject(
+    this.targets.push(
       this.store.createRecord("teambuild-target", {
         target_type_id: Types.REGULAR,
         position: maxPosition + 1,
@@ -34,6 +35,6 @@ export default class TeamBuildManageController extends Controller {
 
   @action
   removeTarget(t) {
-    this.targets.removeObject(t);
+    removeValueFromArray(this.targets, t);
   }
 }
