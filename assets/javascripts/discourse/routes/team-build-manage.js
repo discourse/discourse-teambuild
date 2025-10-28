@@ -6,6 +6,9 @@ export default class TeamBuildManageRoute extends Route {
   }
 
   setupController(controller, targets) {
-    controller.setProperties({ targets, groups: targets.extras.groups });
+    controller.setProperties({
+      targets: targets.content,
+      groups: targets.extras.groups,
+    });
   }
 }
