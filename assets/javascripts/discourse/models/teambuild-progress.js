@@ -1,4 +1,9 @@
 import { popupAjaxError } from "discourse/lib/ajax-error";
+import {
+  addUniqueValueToArray,
+  removeValueFromArray,
+} from "discourse/lib/array-tools";
+import { trackedArray } from "discourse/lib/tracked-tools";
 import RestModel from "discourse/models/rest";
 
 function choiceKey(target, userId) {
@@ -6,6 +11,8 @@ function choiceKey(target, userId) {
 }
 
 export default class TeambuildProgress extends RestModel {
+  @trackedArray completed = [];
+
   isComplete(target, userId) {
     return this.completed.includes(choiceKey(target, userId));
   }
@@ -14,7 +21,7 @@ export default class TeambuildProgress extends RestModel {
     target
       .complete(userId)
       .then(() => {
-        this.completed.addObject(choiceKey(target, userId));
+        addUniqueValueToArray(this.completed, choiceKey(target, userId));
       })
       .catch(popupAjaxError);
   }
@@ -23,7 +30,7 @@ export default class TeambuildProgress extends RestModel {
     target
       .undo(userId)
       .then(() => {
-        this.completed.removeObject(choiceKey(target, userId));
+        removeValueFromArray(this.completed, choiceKey(target, userId));
       })
       .catch(popupAjaxError);
   }
