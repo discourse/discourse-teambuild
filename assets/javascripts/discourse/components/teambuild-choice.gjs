@@ -1,12 +1,11 @@
 import Component from "@ember/component";
-import { action, computed } from "@ember/object";
+import { action } from "@ember/object";
 import { tagName } from "@ember-decorators/component";
 import DButton from "discourse/components/d-button";
 import icon from "discourse/helpers/d-icon";
 
 @tagName("")
 export default class TeambuildChoice extends Component {
-  @computed("progress.completed.[]")
   get completed() {
     return this.progress.isComplete(this.target, this.userId);
   }
