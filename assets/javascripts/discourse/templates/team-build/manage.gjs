@@ -2,7 +2,7 @@ import { fn } from "@ember/helper";
 import RouteTemplate from "ember-route-template";
 import DButton from "discourse/components/d-button";
 import { i18n } from "discourse-i18n";
-import TeambuildTarget from "../components/teambuild-target";
+import TeambuildTarget from "../../components/teambuild-target";
 
 export default RouteTemplate(
   <template>

@@ -5,6 +5,34 @@ import { acceptance } from "discourse/tests/helpers/qunit-helpers";
 acceptance("Team Building: Manage", function (needs) {
   needs.user({ can_access_teambuild: true });
   needs.pretender((server, helper) => {
+    server.get("/team-build/scores.json", () => {
+      return helper.response(200, {
+        scores: [
+          {
+            id: 1,
+            username: "user1",
+            username_lower: "user1",
+            score: 10,
+            rank: 1,
+            trophy: true,
+            me: false,
+            avatar_template:
+              "/letter_avatar_proxy/v4/letter/u/3be4f8/{size}.png",
+          },
+          {
+            id: 2,
+            username: "user2",
+            username_lower: "user2",
+            score: 5,
+            rank: 2,
+            trophy: false,
+            me: true,
+            avatar_template:
+              "/letter_avatar_proxy/v4/letter/u/3be4f8/{size}.png",
+          },
+        ],
+      });
+    });
     server.get("/team-build/targets.json", () => {
       return helper.response(200, {
         teambuild_targets: [

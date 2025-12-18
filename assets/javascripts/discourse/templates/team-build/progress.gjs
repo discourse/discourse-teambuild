@@ -1,7 +1,7 @@
 import RouteTemplate from "ember-route-template";
 import replaceEmoji from "discourse/helpers/replace-emoji";
 import { i18n } from "discourse-i18n";
-import TeambuildChoice from "../components/teambuild-choice";
+import TeambuildChoice from "../../components/teambuild-choice";
 
 export default RouteTemplate(
   <template>
