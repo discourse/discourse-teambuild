@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe DiscourseTeambuild::TargetsController do
   it "returns 404 when anonymous" do
     SiteSetting.teambuild_enabled = true
