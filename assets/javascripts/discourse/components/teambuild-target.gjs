@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-classic-components */
 import Component, { Input } from "@ember/component";
 import { concat, fn } from "@ember/helper";
 import { action, computed } from "@ember/object";
@@ -9,8 +10,8 @@ import DButton from "discourse/components/d-button";
 import RadioButton from "discourse/components/radio-button";
 import replaceEmoji from "discourse/helpers/replace-emoji";
 import { popupAjaxError } from "discourse/lib/ajax-error";
+import ComboBox from "discourse/select-kit/components/combo-box";
 import { i18n } from "discourse-i18n";
-import ComboBox from "select-kit/components/combo-box";
 import { Types } from "discourse/plugins/discourse-teambuild/discourse/models/teambuild-target";
 
 @tagName("")
