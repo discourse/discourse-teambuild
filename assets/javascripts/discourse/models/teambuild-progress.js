@@ -3,7 +3,7 @@ import {
   addUniqueValueToArray,
   removeValueFromArray,
 } from "discourse/lib/array-tools";
-import { trackedArray } from "discourse/lib/tracked-tools";
+import { autoTrackedArray } from "discourse/lib/tracked-tools";
 import RestModel from "discourse/models/rest";
 
 function choiceKey(target, userId) {
@@ -11,7 +11,7 @@ function choiceKey(target, userId) {
 }
 
 export default class TeambuildProgress extends RestModel {
-  @trackedArray completed = [];
+  @autoTrackedArray completed = [];
 
   isComplete(target, userId) {
     return this.completed.includes(choiceKey(target, userId));
